@@ -1,827 +1,1555 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OSM Decals - OSHA & WHMIS compliant labels, safety stickers, and fleet decals built for extreme oilfield conditions in Northern Alberta.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="OSM Decals - OSHA & WHMIS compliant labels, safety stickers, and fleet decals built for extreme oilfield conditions in Northern Alberta."
+    />
     <title>OSM Decals | Oilfield Safety & Marking Solutions</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="OSMfavicon.svg?v=2">
-    
+    <link rel="icon" type="image/svg+xml" href="OSMfavicon.svg?v=2" />
+
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'navy': '#003366',
-                        'navy-dark': '#002244',
-                        'teal': '#008080',
-                        'safety-orange': '#FF6600',
-                        'light-gray': '#F2F2F2',
-                    },
-                    fontFamily: {
-                        'heading': ['Montserrat', 'sans-serif'],
-                        'body': ['Open Sans', 'sans-serif'],
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#003366",
+              "navy-dark": "#002244",
+              teal: "#008080",
+              "safety-orange": "#FF6600",
+              "light-gray": "#F2F2F2",
+            },
+            fontFamily: {
+              heading: ["Montserrat", "sans-serif"],
+              body: ["Open Sans", "sans-serif"],
+            },
+          },
+        },
+      };
     </script>
-    
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Industrial grid pattern overlay */
-        .hero-pattern {
-            background-image: 
-                linear-gradient(rgba(0, 51, 102, 0.95), rgba(0, 128, 128, 0.9)),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.03) 50px,
-                    rgba(255, 255, 255, 0.03) 51px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    transparent,
-                    transparent 50px,
-                    rgba(255, 255, 255, 0.03) 50px,
-                    rgba(255, 255, 255, 0.03) 51px
-                );
-        }
-        
-        /* Active nav link styling */
-        .nav-link.active {
-            color: #FF6600;
-        }
-        
-        /* Product card hover effect */
-        .product-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
-        }
-        
-        /* Process step with connector */
-        .process-step {
-            position: relative;
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-        }
-        
-        /* Vertical dotted line on mobile (default) - connects to next circle */
-        .process-step:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -48px;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 46px;
-            background-image: linear-gradient(to bottom, #FF6600 50%, transparent 50%);
-            background-size: 2px 8px;
-            background-repeat: repeat-y;
-        }
-        
-        /* Horizontal dotted line on desktop */
-        @media (min-width: 768px) {
-            .process-step {
-                padding-bottom: 0;
-            }
-            .process-step:not(:last-child)::after {
-                left: calc(50% + 30px);
-                top: 24px;
-                transform: translateY(-50%);
-                width: calc(100% - 12px);
-                height: 2px;
-                background-image: linear-gradient(to right, #FF6600 50%, transparent 50%);
-                background-size: 8px 2px;
-                background-repeat: repeat-x;
-            }
-        }
-        
-        /* Button hover effects */
-        .btn-primary {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
-        }
-        
-        .btn-secondary {
-            transition: all 0.2s ease;
-        }
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-    </style>
-</head>
-<body class="font-body text-gray-800 bg-white">
 
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Industrial grid pattern overlay */
+      .hero-pattern {
+        background-image:
+          linear-gradient(rgba(0, 51, 102, 0.95), rgba(0, 128, 128, 0.9)),
+          repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 50px,
+            rgba(255, 255, 255, 0.03) 50px,
+            rgba(255, 255, 255, 0.03) 51px
+          ),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 50px,
+            rgba(255, 255, 255, 0.03) 50px,
+            rgba(255, 255, 255, 0.03) 51px
+          );
+      }
+
+      /* Active nav link styling */
+      .nav-link.active {
+        color: #ff6600;
+      }
+
+      /* Product card hover effect */
+      .product-card {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+      }
+
+      /* Process step with connector */
+      .process-step {
+        position: relative;
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+      }
+
+      /* Vertical dotted line on mobile (default) - connects to next circle */
+      .process-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -48px;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 46px;
+        background-image: linear-gradient(
+          to bottom,
+          #ff6600 50%,
+          transparent 50%
+        );
+        background-size: 2px 8px;
+        background-repeat: repeat-y;
+      }
+
+      /* Horizontal dotted line on desktop */
+      @media (min-width: 768px) {
+        .process-step {
+          padding-bottom: 0;
+        }
+        .process-step:not(:last-child)::after {
+          left: calc(50% + 30px);
+          top: 24px;
+          transform: translateY(-50%);
+          width: calc(100% - 12px);
+          height: 2px;
+          background-image: linear-gradient(
+            to right,
+            #ff6600 50%,
+            transparent 50%
+          );
+          background-size: 8px 2px;
+          background-repeat: repeat-x;
+        }
+      }
+
+      /* Button hover effects */
+      .btn-primary {
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
+      }
+
+      .btn-secondary {
+        transition: all 0.2s ease;
+      }
+      .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+  <body class="font-body text-gray-800 bg-white">
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm shadow-lg overflow-visible">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
-            <div class="flex justify-between items-center h-16 md:h-20 overflow-visible">
-                <!-- Logo -->
-                <a href="#" class="block flex-shrink-0 overflow-visible">
-                    <img src="logo.svg?v=5" alt="OSM Decals" class="h-8 sm:h-9 md:h-12 w-auto max-w-none" style="filter: brightness(0) invert(1);">
-                    <p class="text-white/50 text-xs text-center mt-0.5 tracking-wide">a division of First Impression Signs</p>
-                </a>
-                
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#products" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold">Products</a>
-                    <a href="#pricing" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold">Pricing</a>
-                    <a href="#process" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold">Process</a>
-                    <a href="#materials" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold">Materials</a>
-                    <a href="#contact" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold">Contact</a>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request" class="btn-primary bg-safety-orange text-white px-5 py-2 rounded-lg font-semibold">
-                        Request a Quote
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-white p-2" aria-label="Toggle menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                        <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <!-- Mobile Navigation -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <div class="flex flex-col space-y-3">
-                    <a href="#products" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2">Products</a>
-                    <a href="#pricing" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2">Pricing</a>
-                    <a href="#process" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2">Process</a>
-                    <a href="#materials" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2">Materials</a>
-                    <a href="#contact" class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2">Contact</a>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request" class="btn-primary bg-safety-orange text-white px-5 py-2 rounded-lg font-semibold text-center mt-2">
-                        Request a Quote
-                    </a>
-                </div>
-            </div>
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 right-0 z-50 bg-navy/95 backdrop-blur-sm shadow-lg overflow-visible"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
+        <div
+          class="flex justify-between items-center h-16 md:h-20 overflow-visible"
+        >
+          <!-- Logo -->
+          <a href="#" class="block flex-shrink-0 overflow-visible">
+            <img
+              src="logo.svg?v=5"
+              alt="OSM Decals"
+              class="h-8 sm:h-9 md:h-12 w-auto max-w-none"
+              style="filter: brightness(0) invert(1)"
+            />
+            <p class="text-white/50 text-xs text-center mt-0.5 tracking-wide">
+              a division of First Impression Signs
+            </p>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#products"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold"
+              >Products</a
+            >
+            <a
+              href="#pricing"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold"
+              >Pricing</a
+            >
+            <a
+              href="#process"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold"
+              >Process</a
+            >
+            <a
+              href="#materials"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold"
+              >Materials</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold"
+              >Contact</a
+            >
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request"
+              class="btn-primary bg-safety-orange text-white px-5 py-2 rounded-lg font-semibold"
+            >
+              Request a Quote
+            </a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden text-white p-2"
+            aria-label="Toggle menu"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                id="menu-icon"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+              <path
+                id="close-icon"
+                class="hidden"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
         </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col space-y-3">
+            <a
+              href="#products"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2"
+              >Products</a
+            >
+            <a
+              href="#pricing"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2"
+              >Pricing</a
+            >
+            <a
+              href="#process"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2"
+              >Process</a
+            >
+            <a
+              href="#materials"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2"
+              >Materials</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-white hover:text-safety-orange transition-colors font-semibold py-2"
+              >Contact</a
+            >
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request"
+              class="btn-primary bg-safety-orange text-white px-5 py-2 rounded-lg font-semibold text-center mt-2"
+            >
+              Request a Quote
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero-pattern min-h-screen flex items-center pt-16 md:pt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-            <div class="max-w-3xl">
-                <h1 class="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6">
-                    Durability That Endures.<br>
-                    <span class="text-safety-orange">Safety That Shows.</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-200 font-semibold mb-4">
-                    OSHA & WHMIS Compliant Labels Built for Extreme Oilfield Conditions
-                </p>
-                <p class="text-lg text-gray-300 mb-8 max-w-2xl">
-                    From -30°C blizzards to +30°C summer heat, our labels and decals are engineered to withstand the harshest Northern Alberta conditions. Built for the oilfield, trusted by the industry.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request" class="btn-primary bg-safety-orange text-white px-8 py-4 rounded-lg font-heading font-bold text-lg text-center shadow-lg">
-                        Request a Quote
-                    </a>
-                    <a href="mailto:sales@osmdecals.ca?subject=Sample%20Kit%20Request" class="btn-secondary border-2 border-white text-white px-8 py-4 rounded-lg font-heading font-bold text-lg text-center">
-                        Get a Sample Kit
-                    </a>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+        <div class="max-w-3xl">
+          <h1
+            class="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6"
+          >
+            Durability That Endures.<br />
+            <span class="text-safety-orange">Safety That Shows.</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-200 font-semibold mb-4">
+            OSHA & WHMIS Compliant Labels Built for Extreme Oilfield Conditions
+          </p>
+          <p class="text-lg text-gray-300 mb-8 max-w-2xl">
+            From -30°C blizzards to +30°C summer heat, our labels and decals are
+            engineered to withstand the harshest Northern Alberta conditions.
+            Built for the oilfield, trusted by the industry.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request"
+              class="btn-primary bg-safety-orange text-white px-8 py-4 rounded-lg font-heading font-bold text-lg text-center shadow-lg"
+            >
+              Request a Quote
+            </a>
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Sample%20Kit%20Request"
+              class="btn-secondary border-2 border-white text-white px-8 py-4 rounded-lg font-heading font-bold text-lg text-center"
+            >
+              Get a Sample Kit
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Trusted By Section -->
     <section class="py-10 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8">Trusted by leading oilfield companies</p>
-            <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-                <!-- Surerus Murphy -->
-                <div class="flex items-center justify-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-                    <img src="surerus-murphy-logo.webp" alt="Surerus Murphy" class="h-10 md:h-14 w-auto object-contain">
-                </div>
-                <!-- Connacher -->
-                <div class="flex items-center justify-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300">
-                    <img src="connacher-logo.webp" alt="Connacher Oil and Gas" class="h-10 md:h-14 w-auto object-contain">
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p
+          class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8"
+        >
+          Trusted by leading oilfield companies
+        </p>
+        <div
+          class="flex flex-wrap justify-center items-center gap-10 md:gap-16"
+        >
+          <!-- Surerus Murphy -->
+          <div
+            class="flex items-center justify-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+          >
+            <img
+              src="surerus-murphy-logo.webp"
+              alt="Surerus Murphy"
+              class="h-10 md:h-14 w-auto object-contain"
+            />
+          </div>
+          <!-- Connacher -->
+          <div
+            class="flex items-center justify-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
+          >
+            <img
+              src="connacher-logo.webp"
+              alt="Connacher Oil and Gas"
+              class="h-10 md:h-14 w-auto object-contain"
+            />
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Products Section -->
     <section id="products" class="py-20 md:py-28 bg-light-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">Our Products</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Hand-finished in Canada using premium high-performance films and substrates—built for the unique demands of oilfield operations.
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8">
-                <!-- WHMIS Labels - Hero Product -->
-                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md border-2 border-safety-orange">
-                    <div class="h-48 relative overflow-hidden">
-                        <span class="absolute top-3 right-3 bg-safety-orange text-white text-xs font-bold px-2 py-1 rounded z-10">POPULAR</span>
-                        <img src="whmis-labels.jpg" alt="Industrial WHMIS Labels" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading font-bold text-xl text-navy mb-2">Industrial WHMIS Labels</h3>
-                        <p class="text-gray-600 text-sm mb-4">OSHA & WHMIS compliant hazard labels. Professionally assembled, UV-laminated, and chemical-resistant for demanding environments.</p>
-                        <div class="border-t pt-4">
-                            <p class="text-safety-orange font-bold">From $14.50/sheet</p>
-                            <p class="text-xs text-gray-500">Min. order: 25 units</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Hard Hat Stickers -->
-                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="hard-hat-stickers.jpg" alt="Hard Hat Stickers" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading font-bold text-xl text-navy mb-2">Hard Hat Stickers</h3>
-                        <p class="text-gray-600 text-sm mb-4">Durable labels for safety helmets—hand-finished in Canada with premium films. Custom designs and certifications available.</p>
-                        <div class="border-t pt-4">
-                            <p class="text-safety-orange font-bold">From $3.25/unit</p>
-                            <p class="text-xs text-gray-500">Min. order: 50 units</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Fleet Truck Decals -->
-                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="fleet-truck-decals.jpg" alt="Fleet Truck Decals" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading font-bold text-xl text-navy mb-2">Fleet Truck Decals</h3>
-                        <p class="text-gray-600 text-sm mb-4">Premium cast vinyl vehicle branding that lasts—professionally assembled and ready to install.</p>
-                        <div class="border-t pt-4">
-                            <p class="text-safety-orange font-bold">From $68.00/pair</p>
-                            <p class="text-xs text-gray-500">Min. order: 4 units (2 pairs)</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Reflective Traffic Signage -->
-                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 overflow-hidden">
-                        <img src="traffic-safety-signs.jpg" alt="Reflective Traffic Signs" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading font-bold text-xl text-navy mb-2">Reflective Traffic Signs</h3>
-                        <p class="text-gray-600 text-sm mb-4">High-intensity reflective polymetal signs—hand-built in Canada for visibility that holds up in the field.</p>
-                        <div class="border-t pt-4">
-                            <p class="text-safety-orange font-bold">From $145.00/unit</p>
-                            <p class="text-xs text-gray-500">Min. order: 5 units</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Oilfield Coroplast Signs -->
-                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-48 bg-gradient-to-br from-navy to-teal flex items-center justify-center">
-                        <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading font-bold text-xl text-navy mb-2">Oilfield Coroplast Signs</h3>
-                        <p class="text-gray-600 text-sm mb-4">Lightweight 4mm corrugated plastic with UV-laminated print—finished and kitted for fast deployment.</p>
-                        <div class="border-t pt-4">
-                            <p class="text-safety-orange font-bold">From $44.00/unit</p>
-                            <p class="text-xs text-gray-500">Min. order: 10 units</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="font-heading font-black text-3xl md:text-4xl text-navy mb-4"
+          >
+            Our Products
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Hand-finished in Canada using premium high-performance films and
+            substrates—built for the unique demands of oilfield operations.
+          </p>
         </div>
+
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 md:gap-8"
+        >
+          <!-- WHMIS Labels - Hero Product -->
+          <div
+            class="product-card bg-white rounded-xl overflow-hidden shadow-md"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="whmis-labels.jpg"
+                alt="Industrial WHMIS Labels"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-xl text-navy mb-2">
+                Industrial WHMIS Labels
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                OSHA & WHMIS compliant hazard labels. Professionally assembled,
+                UV-laminated, and chemical-resistant for demanding environments.
+              </p>
+              <div class="border-t pt-4">
+                <p class="text-safety-orange font-bold">From $14.50/sheet</p>
+                <p class="text-xs text-gray-500">Min. order: 25 units</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hard Hat Stickers -->
+          <div
+            class="product-card bg-white rounded-xl overflow-hidden shadow-md"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="hard-hat-stickers.jpg"
+                alt="Hard Hat Stickers"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-xl text-navy mb-2">
+                Hard Hat Stickers
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Durable labels for safety helmets—hand-finished in Canada with
+                premium films. Custom designs and certifications available.
+              </p>
+              <div class="border-t pt-4">
+                <p class="text-safety-orange font-bold">From $3.25/unit</p>
+                <p class="text-xs text-gray-500">Min. order: 50 units</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fleet Truck Decals -->
+          <div
+            class="product-card bg-white rounded-xl overflow-hidden shadow-md"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="fleet-truck-decals.jpg"
+                alt="Fleet Truck Decals"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-xl text-navy mb-2">
+                Fleet Truck Decals
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Premium cast vinyl vehicle branding that lasts—professionally
+                assembled and ready to install.
+              </p>
+              <div class="border-t pt-4">
+                <p class="text-safety-orange font-bold">From $68.00/pair</p>
+                <p class="text-xs text-gray-500">
+                  Min. order: 4 units (2 pairs)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reflective Traffic Signage -->
+          <div
+            class="product-card bg-white rounded-xl overflow-hidden shadow-md"
+          >
+            <div class="h-48 overflow-hidden">
+              <img
+                src="traffic-safety-signs.jpg"
+                alt="Reflective Traffic Signs"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-xl text-navy mb-2">
+                Reflective Traffic Signs
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                High-intensity reflective polymetal signs—hand-built in Canada
+                for visibility that holds up in the field.
+              </p>
+              <div class="border-t pt-4">
+                <p class="text-safety-orange font-bold">From $145.00/unit</p>
+                <p class="text-xs text-gray-500">Min. order: 5 units</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oilfield Coroplast Signs -->
+          <div
+            class="product-card bg-white rounded-xl overflow-hidden shadow-md"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-navy to-teal flex items-center justify-center"
+            >
+              <svg
+                class="w-20 h-20 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
+            </div>
+            <div class="p-6">
+              <h3 class="font-heading font-bold text-xl text-navy mb-2">
+                Oilfield Coroplast Signs
+              </h3>
+              <p class="text-gray-600 text-sm mb-4">
+                Lightweight 4mm corrugated plastic with UV-laminated
+                print—finished and kitted for fast deployment.
+              </p>
+              <div class="border-t pt-4">
+                <p class="text-safety-orange font-bold">From $44.00/unit</p>
+                <p class="text-xs text-gray-500">Min. order: 10 units</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Pricing Section -->
     <section id="pricing" class="py-20 md:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-6">
-                <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">Transparent Pricing</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-2">
-                    Every rate below is <span class="font-semibold text-navy">labor-inclusive</span>: professional assembly, UV lamination, and expedited shipping are built in—not bolted on as surprise fees.
-                </p>
-                <p class="text-base text-gray-500 max-w-2xl mx-auto mb-4">
-                    Hand-finished in Canada using premium high-performance materials engineered for oilfield conditions.
-                </p>
-                <span class="inline-flex items-center gap-2 bg-teal/10 text-teal font-semibold text-sm px-4 py-2 rounded-full">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                    Assembly, UV lamination &amp; expedited shipping included
-                </span>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-
-                <!-- Pricing Card: Industrial WHMIS Labels -->
-                <div class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative">
-                    <span class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        ALL-IN
-                    </span>
-                    <h3 class="font-heading font-bold text-lg text-navy mb-1">Industrial WHMIS Labels</h3>
-                    <p class="text-gray-500 text-sm mb-2">8.5" x 11" sheets</p>
-                    <p class="text-xs text-gray-500 mb-3">Est. production: ~2 min per label</p>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded">UV-LAMINATED</span>
-                    </div>
-                    <p class="text-sm text-navy/90 mb-4">Includes professional assembly, UV lamination, and expedited shipping.</p>
-                    <p class="text-3xl font-heading font-black text-navy mb-1">$14.50 <span class="text-base font-semibold text-gray-500">CAD/sheet</span></p>
-                    <p class="text-sm text-gray-500 mb-1">Orajet 3165A + Oraguard 210</p>
-                    <p class="text-sm font-semibold text-safety-orange mb-5">Min. order: 25 units</p>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20WHMIS%20Labels" class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold">
-                        Request a Quote
-                    </a>
-                </div>
-
-                <!-- Pricing Card: Hard Hat Stickers -->
-                <div class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative">
-                    <span class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        ALL-IN
-                    </span>
-                    <h3 class="font-heading font-bold text-lg text-navy mb-1">Hard Hat Stickers</h3>
-                    <p class="text-gray-500 text-sm mb-2">2.5" x 2.5"</p>
-                    <p class="text-xs text-gray-500 mb-3">Est. production: ~30 min per batch</p>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded">UV-LAMINATED</span>
-                    </div>
-                    <p class="text-sm text-navy/90 mb-4">Includes professional assembly, UV lamination, and expedited shipping.</p>
-                    <p class="text-3xl font-heading font-black text-navy mb-1">$3.25 <span class="text-base font-semibold text-gray-500">CAD/unit</span></p>
-                    <p class="text-sm text-gray-500 mb-1">Orajet 3165A + Oraguard 210</p>
-                    <p class="text-sm font-semibold text-safety-orange mb-5">Min. order: 50 units</p>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Hard%20Hat%20Stickers" class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold">
-                        Request a Quote
-                    </a>
-                </div>
-
-                <!-- Pricing Card: Fleet Truck Decals -->
-                <div class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative">
-                    <span class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        ALL-IN
-                    </span>
-                    <h3 class="font-heading font-bold text-lg text-navy mb-1">Fleet Truck Decals</h3>
-                    <p class="text-gray-500 text-sm mb-2">18" x 24" (priced per pair)</p>
-                    <p class="text-xs text-gray-500 mb-3">Est. production: ~20 min per pair</p>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-safety-orange/10 text-safety-orange text-xs font-semibold px-2 py-1 rounded">CAST VINYL</span>
-                    </div>
-                    <p class="text-sm text-navy/90 mb-4">Includes professional assembly, UV lamination, and expedited shipping.</p>
-                    <p class="text-3xl font-heading font-black text-navy mb-1">$68.00 <span class="text-base font-semibold text-gray-500">CAD/pair</span></p>
-                    <p class="text-sm text-gray-500 mb-1">Oracal 751 Cast + Oratape HT55</p>
-                    <p class="text-sm font-semibold text-safety-orange mb-5">Min. order: 4 units (2 pairs)</p>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Fleet%20Truck%20Decals" class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold">
-                        Request a Quote
-                    </a>
-                </div>
-
-                <!-- Pricing Card: Reflective Traffic Sign -->
-                <div class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative">
-                    <span class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        ALL-IN
-                    </span>
-                    <h3 class="font-heading font-bold text-lg text-navy mb-1">Reflective Traffic Sign</h3>
-                    <p class="text-gray-500 text-sm mb-2">18" x 24" — Polymetal substrate</p>
-                    <p class="text-xs text-gray-500 mb-3">Est. production: ~15 min per sign</p>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-safety-orange/10 text-safety-orange text-xs font-semibold px-2 py-1 rounded">HIGH-INTENSITY REFLECTIVE</span>
-                        <span class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded">UV-LAMINATED</span>
-                    </div>
-                    <p class="text-sm text-navy/90 mb-4">Includes professional assembly, UV lamination, and expedited shipping.</p>
-                    <p class="text-3xl font-heading font-black text-navy mb-1">$145.00 <span class="text-base font-semibold text-gray-500">CAD/unit</span></p>
-                    <p class="text-sm text-gray-500 mb-1">Oralite 5400 + Oraguard 215 + Polymetal</p>
-                    <p class="text-sm font-semibold text-safety-orange mb-5">Min. order: 5 units</p>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Reflective%20Traffic%20Signs" class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold">
-                        Request a Quote
-                    </a>
-                </div>
-
-                <!-- Pricing Card: Oilfield Coroplast Sign -->
-                <div class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative">
-                    <span class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        ALL-IN
-                    </span>
-                    <h3 class="font-heading font-bold text-lg text-navy mb-1">Oilfield Coroplast Sign</h3>
-                    <p class="text-gray-500 text-sm mb-2">18" x 24" — 4mm Coroplast substrate</p>
-                    <p class="text-xs text-gray-500 mb-3">Est. production: ~10 min per sign</p>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        <span class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded">UV-LAMINATED</span>
-                        <span class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded">WEATHERPROOF</span>
-                    </div>
-                    <p class="text-sm text-navy/90 mb-4">Includes professional assembly, UV lamination, and expedited shipping.</p>
-                    <p class="text-3xl font-heading font-black text-navy mb-1">$44.00 <span class="text-base font-semibold text-gray-500">CAD/unit</span></p>
-                    <p class="text-sm text-gray-500 mb-1">4mm Coroplast + Orajet 3165A + Oraguard 210</p>
-                    <p class="text-sm font-semibold text-safety-orange mb-5">Min. order: 10 units</p>
-                    <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Coroplast%20Signs" class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold">
-                        Request a Quote
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- Footnotes -->
-            <div class="mt-10 text-center space-y-1">
-                <p class="text-sm text-gray-500">Listed prices reflect <span class="font-semibold text-gray-600">professional labor</span> in addition to premium materials—products are hand-finished in Canada, not mass-drop-shipped.</p>
-                <p class="text-sm text-gray-500">Design time billed at <span class="font-semibold text-gray-600">$60.00/hr CAD</span> where applicable.</p>
-                <p class="text-sm text-gray-500">Rush orders add <span class="font-semibold text-gray-600">25%</span> to the final invoice.</p>
-                <p class="text-xs text-gray-400 mt-3">All prices in Canadian dollars. Est. production times are typical; actual times vary by artwork and order size. Prices subject to change. Contact us for custom sizes and bulk orders.</p>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-6">
+          <h2
+            class="font-heading font-black text-3xl md:text-4xl text-navy mb-4"
+          >
+            Transparent Pricing
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-2">
+            Every rate below is
+            <span class="font-semibold text-navy">labor-inclusive</span>:
+            professional assembly, UV lamination, and expedited shipping are
+            built in—not bolted on as surprise fees.
+          </p>
+          <p class="text-base text-gray-500 max-w-2xl mx-auto mb-4">
+            Hand-finished in Canada using premium high-performance materials
+            engineered for oilfield conditions.
+          </p>
+          <span
+            class="inline-flex items-center gap-2 bg-teal/10 text-teal font-semibold text-sm px-4 py-2 rounded-full"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            Assembly, UV lamination &amp; expedited shipping included
+          </span>
         </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <!-- Pricing Card: Industrial WHMIS Labels -->
+          <div
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+          >
+            <span
+              class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full"
+            >
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              ALL-IN
+            </span>
+            <h3 class="font-heading font-bold text-lg text-navy mb-1">
+              Industrial WHMIS Labels
+            </h3>
+            <p class="text-gray-500 text-sm mb-2">8.5" x 11" sheets</p>
+            <p class="text-xs text-gray-500 mb-3">
+              Est. production: ~2 min per label
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded"
+                >UV-LAMINATED</span
+              >
+            </div>
+            <p class="text-sm text-navy/90 mb-4">
+              Includes professional assembly, UV lamination, and expedited
+              shipping.
+            </p>
+            <p class="text-3xl font-heading font-black text-navy mb-1">
+              $14.50
+              <span class="text-base font-semibold text-gray-500"
+                >CAD/sheet</span
+              >
+            </p>
+            <p class="text-sm text-gray-500 mb-1">
+              Orajet 3165A + Oraguard 210
+            </p>
+            <p class="text-sm font-semibold text-safety-orange mb-5">
+              Min. order: 25 units
+            </p>
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20WHMIS%20Labels"
+              class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+            >
+              Request a Quote
+            </a>
+          </div>
+
+          <!-- Pricing Card: Hard Hat Stickers -->
+          <div
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+          >
+            <span
+              class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full"
+            >
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              ALL-IN
+            </span>
+            <h3 class="font-heading font-bold text-lg text-navy mb-1">
+              Hard Hat Stickers
+            </h3>
+            <p class="text-gray-500 text-sm mb-2">2.5" x 2.5"</p>
+            <p class="text-xs text-gray-500 mb-3">
+              Est. production: ~30 min per batch
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded"
+                >UV-LAMINATED</span
+              >
+            </div>
+            <p class="text-sm text-navy/90 mb-4">
+              Includes professional assembly, UV lamination, and expedited
+              shipping.
+            </p>
+            <p class="text-3xl font-heading font-black text-navy mb-1">
+              $3.25
+              <span class="text-base font-semibold text-gray-500"
+                >CAD/unit</span
+              >
+            </p>
+            <p class="text-sm text-gray-500 mb-1">
+              Orajet 3165A + Oraguard 210
+            </p>
+            <p class="text-sm font-semibold text-safety-orange mb-5">
+              Min. order: 50 units
+            </p>
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Hard%20Hat%20Stickers"
+              class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+            >
+              Request a Quote
+            </a>
+          </div>
+
+          <!-- Pricing Card: Fleet Truck Decals -->
+          <div
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+          >
+            <span
+              class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full"
+            >
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              ALL-IN
+            </span>
+            <h3 class="font-heading font-bold text-lg text-navy mb-1">
+              Fleet Truck Decals
+            </h3>
+            <p class="text-gray-500 text-sm mb-2">
+              18" x 24" (priced per pair)
+            </p>
+            <p class="text-xs text-gray-500 mb-3">
+              Est. production: ~20 min per pair
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="bg-safety-orange/10 text-safety-orange text-xs font-semibold px-2 py-1 rounded"
+                >CAST VINYL</span
+              >
+            </div>
+            <p class="text-sm text-navy/90 mb-4">
+              Includes professional assembly, UV lamination, and expedited
+              shipping.
+            </p>
+            <p class="text-3xl font-heading font-black text-navy mb-1">
+              $68.00
+              <span class="text-base font-semibold text-gray-500"
+                >CAD/pair</span
+              >
+            </p>
+            <p class="text-sm text-gray-500 mb-1">
+              Oracal 751 Cast + Oratape HT55
+            </p>
+            <p class="text-sm font-semibold text-safety-orange mb-5">
+              Min. order: 4 units (2 pairs)
+            </p>
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Fleet%20Truck%20Decals"
+              class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+            >
+              Request a Quote
+            </a>
+          </div>
+
+          <!-- Pricing Card: Reflective Traffic Sign -->
+          <div
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+          >
+            <span
+              class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full"
+            >
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              ALL-IN
+            </span>
+            <h3 class="font-heading font-bold text-lg text-navy mb-1">
+              Reflective Traffic Sign
+            </h3>
+            <p class="text-gray-500 text-sm mb-2">
+              18" x 24" — Polymetal substrate
+            </p>
+            <p class="text-xs text-gray-500 mb-3">
+              Est. production: ~15 min per sign
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="bg-safety-orange/10 text-safety-orange text-xs font-semibold px-2 py-1 rounded"
+                >HIGH-INTENSITY REFLECTIVE</span
+              >
+              <span
+                class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded"
+                >UV-LAMINATED</span
+              >
+            </div>
+            <p class="text-sm text-navy/90 mb-4">
+              Includes professional assembly, UV lamination, and expedited
+              shipping.
+            </p>
+            <p class="text-3xl font-heading font-black text-navy mb-1">
+              $145.00
+              <span class="text-base font-semibold text-gray-500"
+                >CAD/unit</span
+              >
+            </p>
+            <p class="text-sm text-gray-500 mb-1">
+              Oralite 5400 + Oraguard 215 + Polymetal
+            </p>
+            <p class="text-sm font-semibold text-safety-orange mb-5">
+              Min. order: 5 units
+            </p>
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Reflective%20Traffic%20Signs"
+              class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+            >
+              Request a Quote
+            </a>
+          </div>
+
+          <!-- Pricing Card: Oilfield Coroplast Sign -->
+          <div
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+          >
+            <span
+              class="absolute top-4 right-4 inline-flex items-center gap-1 bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded-full"
+            >
+              <svg
+                class="w-3 h-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+              ALL-IN
+            </span>
+            <h3 class="font-heading font-bold text-lg text-navy mb-1">
+              Oilfield Coroplast Sign
+            </h3>
+            <p class="text-gray-500 text-sm mb-2">
+              18" x 24" — 4mm Coroplast substrate
+            </p>
+            <p class="text-xs text-gray-500 mb-3">
+              Est. production: ~10 min per sign
+            </p>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <span
+                class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded"
+                >UV-LAMINATED</span
+              >
+              <span
+                class="bg-navy/10 text-navy text-xs font-semibold px-2 py-1 rounded"
+                >WEATHERPROOF</span
+              >
+            </div>
+            <p class="text-sm text-navy/90 mb-4">
+              Includes professional assembly, UV lamination, and expedited
+              shipping.
+            </p>
+            <p class="text-3xl font-heading font-black text-navy mb-1">
+              $44.00
+              <span class="text-base font-semibold text-gray-500"
+                >CAD/unit</span
+              >
+            </p>
+            <p class="text-sm text-gray-500 mb-1">
+              4mm Coroplast + Orajet 3165A + Oraguard 210
+            </p>
+            <p class="text-sm font-semibold text-safety-orange mb-5">
+              Min. order: 10 units
+            </p>
+            <a
+              href="mailto:sales@osmdecals.ca?subject=Quote%20Request%20-%20Coroplast%20Signs"
+              class="btn-primary block text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+            >
+              Request a Quote
+            </a>
+          </div>
+        </div>
+
+        <!-- Footnotes -->
+        <div class="mt-10 text-center space-y-1">
+          <p class="text-sm text-gray-500">
+            Listed prices reflect
+            <span class="font-semibold text-gray-600">professional labor</span>
+            in addition to premium materials—products are hand-finished in
+            Canada, not mass-drop-shipped.
+          </p>
+          <p class="text-sm text-gray-500">
+            Design time billed at
+            <span class="font-semibold text-gray-600">$60.00/hr CAD</span> where
+            applicable.
+          </p>
+          <p class="text-sm text-gray-500">
+            Rush orders add
+            <span class="font-semibold text-gray-600">25%</span> to the final
+            invoice.
+          </p>
+          <p class="text-xs text-gray-400 mt-3">
+            All prices in Canadian dollars. Est. production times are typical;
+            actual times vary by artwork and order size. Prices subject to
+            change. Contact us for custom sizes and bulk orders.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- Process Section -->
     <section id="process" class="py-20 md:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">Our Process</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    From initial contact to delivery, we ensure quality at every step
-                </p>
-            </div>
-            
-            <!-- Process Steps -->
-            <div class="grid md:grid-cols-7 gap-8 md:gap-2">
-                <!-- Step 1 -->
-                <div class="process-step flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">1</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Contact Us</h3>
-                    <p class="text-gray-600 text-xs">Tell us what you need</p>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="process-step flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">2</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Receive Quote</h3>
-                    <p class="text-gray-600 text-xs">We provide detailed pricing</p>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="process-step flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">3</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Approve Quote</h3>
-                    <p class="text-gray-600 text-xs">Confirm your order</p>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="process-step flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">4</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Design Draft</h3>
-                    <p class="text-gray-600 text-xs">We create your design</p>
-                </div>
-                
-                <!-- Step 5 -->
-                <div class="process-step flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">5</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Review & Approve</h3>
-                    <p class="text-gray-600 text-xs">Ensure it's exactly right</p>
-                </div>
-                
-                <!-- Step 6 -->
-                <div class="process-step flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">6</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Production</h3>
-                    <p class="text-gray-600 text-xs">We manufacture your order</p>
-                </div>
-                
-                <!-- Step 7 -->
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-12 h-12 bg-teal text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10">7</div>
-                    <h3 class="font-heading font-bold text-navy text-sm mb-1">Fast Delivery</h3>
-                    <p class="text-gray-600 text-xs">Receive your products</p>
-                </div>
-            </div>
-            
-            <!-- Process CTA -->
-            <div class="text-center mt-12">
-                <p class="text-gray-600 mb-4">Ready to get started?</p>
-                <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request" class="btn-primary inline-block bg-safety-orange text-white px-8 py-3 rounded-lg font-heading font-bold">
-                    Start Your Order
-                </a>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="font-heading font-black text-3xl md:text-4xl text-navy mb-4"
+          >
+            Our Process
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            From initial contact to delivery, we ensure quality at every step
+          </p>
         </div>
+
+        <!-- Process Steps -->
+        <div class="grid md:grid-cols-7 gap-8 md:gap-2">
+          <!-- Step 1 -->
+          <div class="process-step flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              1
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Contact Us
+            </h3>
+            <p class="text-gray-600 text-xs">Tell us what you need</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              2
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Receive Quote
+            </h3>
+            <p class="text-gray-600 text-xs">We provide detailed pricing</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              3
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Approve Quote
+            </h3>
+            <p class="text-gray-600 text-xs">Confirm your order</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              4
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Design Draft
+            </h3>
+            <p class="text-gray-600 text-xs">We create your design</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-step flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              5
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Review & Approve
+            </h3>
+            <p class="text-gray-600 text-xs">Ensure it's exactly right</p>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="process-step flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-safety-orange text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              6
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Production
+            </h3>
+            <p class="text-gray-600 text-xs">We manufacture your order</p>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="w-12 h-12 bg-teal text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
+            >
+              7
+            </div>
+            <h3 class="font-heading font-bold text-navy text-sm mb-1">
+              Fast Delivery
+            </h3>
+            <p class="text-gray-600 text-xs">Receive your products</p>
+          </div>
+        </div>
+
+        <!-- Process CTA -->
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-4">Ready to get started?</p>
+          <a
+            href="mailto:sales@osmdecals.ca?subject=Quote%20Request"
+            class="btn-primary inline-block bg-safety-orange text-white px-8 py-3 rounded-lg font-heading font-bold"
+          >
+            Start Your Order
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Materials Section -->
     <section id="materials" class="py-20 md:py-28 bg-navy">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-3xl md:text-4xl text-white mb-4">Built for the Oilfield</h2>
-                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-                    Materials and specifications engineered for extreme conditions
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Durability -->
-                <div class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange">
-                    <div class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-safety-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-white text-lg mb-3">Extreme Durability</h3>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>-30°C to +30°C rated</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>UV-resistant materials</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Abrasion-resistant coating</li>
-                    </ul>
-                </div>
-                
-                <!-- Compliance -->
-                <div class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange">
-                    <div class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-safety-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-white text-lg mb-3">Full Compliance</h3>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>OSHA compliant signage</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>WHMIS standards</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Industry regulations met</li>
-                    </ul>
-                </div>
-                
-                <!-- Performance -->
-                <div class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange">
-                    <div class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-safety-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-white text-lg mb-3">High Performance</h3>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Weatherproof construction</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Chemical resistance</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Fade-resistant inks</li>
-                    </ul>
-                </div>
-                
-                <!-- Customization -->
-                <div class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange">
-                    <div class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-safety-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-heading font-bold text-white text-lg mb-3">Full Customization</h3>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Custom sizes & shapes</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Full-color printing</li>
-                        <li class="flex items-start"><span class="text-safety-orange mr-2">✓</span>Reflective options</li>
-                    </ul>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="font-heading font-black text-3xl md:text-4xl text-white mb-4"
+          >
+            Built for the Oilfield
+          </h2>
+          <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+            Materials and specifications engineered for extreme conditions
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Durability -->
+          <div
+            class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange"
+          >
+            <div
+              class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-6 h-6 text-safety-orange"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">
+              Extreme Durability
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>-30°C to +30°C
+                rated
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>UV-resistant
+                materials
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Abrasion-resistant
+                coating
+              </li>
+            </ul>
+          </div>
+
+          <!-- Compliance -->
+          <div
+            class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange"
+          >
+            <div
+              class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-6 h-6 text-safety-orange"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">
+              Full Compliance
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>OSHA compliant
+                signage
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>WHMIS standards
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Industry
+                regulations met
+              </li>
+            </ul>
+          </div>
+
+          <!-- Performance -->
+          <div
+            class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange"
+          >
+            <div
+              class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-6 h-6 text-safety-orange"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">
+              High Performance
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Weatherproof
+                construction
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Chemical
+                resistance
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Fade-resistant
+                inks
+              </li>
+            </ul>
+          </div>
+
+          <!-- Customization -->
+          <div
+            class="bg-white/10 backdrop-blur rounded-xl p-6 border-l-4 border-safety-orange"
+          >
+            <div
+              class="w-12 h-12 bg-safety-orange/20 rounded-lg flex items-center justify-center mb-4"
+            >
+              <svg
+                class="w-6 h-6 text-safety-orange"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-heading font-bold text-white text-lg mb-3">
+              Full Customization
+            </h3>
+            <ul class="text-gray-300 text-sm space-y-2">
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Custom sizes &
+                shapes
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Full-color
+                printing
+              </li>
+              <li class="flex items-start">
+                <span class="text-safety-orange mr-2">✓</span>Reflective options
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Proof/Trust Section -->
     <section class="py-20 md:py-28 bg-light-gray">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">Trusted by Northern Alberta</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Serving oilfield service companies across the region
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Case Study 1 - Fleet Branding -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-40 overflow-hidden">
-                        <img src="fleet-truck-decals.jpg" alt="Fleet Truck Decals" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="text-teal font-semibold text-sm mb-1">Fleet Branding Project</p>
-                        <h3 class="font-heading font-bold text-navy text-lg mb-2">Complete Vehicle Graphics</h3>
-                        <p class="text-gray-600 text-sm">Full fleet rebranding with weather-resistant decals designed to withstand harsh field conditions.</p>
-                    </div>
-                </div>
-                
-                <!-- Case Study 2 - Connacher WHMIS -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-40 overflow-hidden">
-                        <img src="whmis-labels.jpg" alt="Connacher WHMIS Labels" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="text-teal font-semibold text-sm mb-1">Safety Compliance — Connacher Oil and Gas</p>
-                        <h3 class="font-heading font-bold text-navy text-lg mb-2">WHMIS Label System</h3>
-                        <p class="text-gray-600 text-sm">Comprehensive hazard labeling solution meeting all regulatory requirements for multiple well sites.</p>
-                    </div>
-                </div>
-                
-                <!-- Case Study 3 - Surerus Murphy Signage -->
-                <div class="bg-white rounded-xl overflow-hidden shadow-md">
-                    <div class="h-40 overflow-hidden">
-                        <img src="traffic-safety-signs.jpg" alt="Surerus Murphy Access Sign" class="w-full h-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <p class="text-teal font-semibold text-sm mb-1">Site Signage — Surerus Murphy</p>
-                        <h3 class="font-heading font-bold text-navy text-lg mb-2">Traffic & Safety Signs</h3>
-                        <p class="text-gray-600 text-sm">Heavy-duty reflective signage for improved safety and visibility across remote oilfield locations.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="font-heading font-black text-3xl md:text-4xl text-navy mb-4"
+          >
+            Trusted by Northern Alberta
+          </h2>
+          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+            Serving oilfield service companies across the region
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Case Study 1 - Fleet Branding -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="h-40 overflow-hidden">
+              <img
+                src="fleet-truck-decals.jpg"
+                alt="Fleet Truck Decals"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-teal font-semibold text-sm mb-1">
+                Fleet Branding Project
+              </p>
+              <h3 class="font-heading font-bold text-navy text-lg mb-2">
+                Complete Vehicle Graphics
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Full fleet rebranding with weather-resistant decals designed to
+                withstand harsh field conditions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Case Study 2 - Connacher WHMIS -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="h-40 overflow-hidden">
+              <img
+                src="whmis-labels.jpg"
+                alt="Connacher WHMIS Labels"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-teal font-semibold text-sm mb-1">
+                Safety Compliance — Connacher Oil and Gas
+              </p>
+              <h3 class="font-heading font-bold text-navy text-lg mb-2">
+                WHMIS Label System
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Comprehensive hazard labeling solution meeting all regulatory
+                requirements for multiple well sites.
+              </p>
+            </div>
+          </div>
+
+          <!-- Case Study 3 - Surerus Murphy Signage -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+            <div class="h-40 overflow-hidden">
+              <img
+                src="traffic-safety-signs.jpg"
+                alt="Surerus Murphy Access Sign"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <p class="text-teal font-semibold text-sm mb-1">
+                Site Signage — Surerus Murphy
+              </p>
+              <h3 class="font-heading font-bold text-navy text-lg mb-2">
+                Traffic & Safety Signs
+              </h3>
+              <p class="text-gray-600 text-sm">
+                Heavy-duty reflective signage for improved safety and visibility
+                across remote oilfield locations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Team Section -->
     <section id="team" class="py-20 md:py-28 bg-light-gray">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">Meet the Team</h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    A family-run operation built on craftsmanship, precision, and Northern Alberta grit.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-10 md:gap-12">
-                <!-- Charlene Rask -->
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white">
-                        <img src="charlene-rask.png" alt="Charlene Rask" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-navy">Charlene Rask</h3>
-                    <p class="text-safety-orange font-semibold text-sm mb-3">Graphic Designer</p>
-                    <p class="text-gray-500 text-sm leading-relaxed">Designing and creating for businesses since 1988.</p>
-                </div>
-
-                <!-- Trevor Rask -->
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white">
-                        <img src="trevor-rask.png" alt="Trevor Rask" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-navy">Trevor Rask</h3>
-                    <p class="text-safety-orange font-semibold text-sm mb-3">Accountant</p>
-                    <p class="text-gray-500 text-sm leading-relaxed">Northeastern Alberta's most trusted Instrumentation Technician by day, family's accountant by night.</p>
-                </div>
-
-                <!-- Kyle Rask -->
-                <div class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white">
-                        <img src="kyle-rask.png" alt="Kyle Rask" class="w-full h-full object-cover">
-                    </div>
-                    <h3 class="font-heading font-bold text-xl text-navy">Kyle Rask</h3>
-                    <p class="text-safety-orange font-semibold text-sm mb-3">Production Lead</p>
-                    <p class="text-gray-500 text-sm leading-relaxed">Used as free child labour since he was 5 years old. Luckily now his mother pays him.</p>
-                </div>
-            </div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2
+            class="font-heading font-black text-3xl md:text-4xl text-navy mb-4"
+          >
+            Meet the Team
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            A family-run operation built on craftsmanship, precision, and
+            Northern Alberta grit.
+          </p>
         </div>
+
+        <div class="grid md:grid-cols-3 gap-10 md:gap-12">
+          <!-- Charlene Rask -->
+          <div class="text-center">
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white"
+            >
+              <img
+                src="charlene-rask.png"
+                alt="Charlene Rask"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="font-heading font-bold text-xl text-navy">
+              Charlene Rask
+            </h3>
+            <p class="text-safety-orange font-semibold text-sm mb-3">
+              Owner/Graphic Designer
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Designing and creating for businesses since 1988.
+            </p>
+          </div>
+
+          <!-- Trevor Rask -->
+          <div class="text-center">
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white"
+            >
+              <img
+                src="trevor-rask.png"
+                alt="Trevor Rask"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="font-heading font-bold text-xl text-navy">
+              Trevor Rask
+            </h3>
+            <p class="text-safety-orange font-semibold text-sm mb-3">
+              Accountant/Service Technician
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Northeastern Alberta's most trusted instrumentation technician by
+              day, OSM's accountant by night.
+            </p>
+          </div>
+
+          <!-- Kyle Rask -->
+          <div class="text-center">
+            <div
+              class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white"
+            >
+              <img
+                src="kyle-rask.png"
+                alt="Kyle Rask"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h3 class="font-heading font-bold text-xl text-navy">Kyle Rask</h3>
+            <p class="text-safety-orange font-semibold text-sm mb-3">
+              Production Lead/Sales Lead
+            </p>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Used as free child labour since he was 5 years old. Luckily now he
+              gets paid.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-20 md:py-28 bg-white">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">Ready to Get Started?</h2>
-            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-                Let's discuss how we can support your safety compliance and fleet branding needs
-            </p>
-            
-            <div class="bg-light-gray rounded-2xl p-8 md:p-12 mb-10">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-heading font-bold text-navy text-lg mb-2">Email Us</h3>
-                        <a href="mailto:sales@osmdecals.ca" class="text-teal hover:text-safety-orange transition-colors font-semibold">sales@osmdecals.ca</a>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8 4-8-4m16 0v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7m16 0l-8-4-8 4"/>
-                            </svg>
-                        </div>
-                        <h3 class="font-heading font-bold text-navy text-lg mb-2">Request Samples</h3>
-                        <a href="mailto:sales@osmdecals.ca?subject=Sample%20Kit%20Request" class="text-teal hover:text-safety-orange transition-colors font-semibold">Get a free sample kit</a>
-                    </div>
-                </div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-heading font-black text-3xl md:text-4xl text-navy mb-4">
+          Ready to Get Started?
+        </h2>
+        <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+          Let's discuss how we can support your safety compliance and fleet
+          branding needs
+        </p>
+
+        <div class="bg-light-gray rounded-2xl p-8 md:p-12 mb-10">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-heading font-bold text-navy text-lg mb-2">
+                Email Us
+              </h3>
+              <a
+                href="mailto:sales@osmdecals.ca"
+                class="text-teal hover:text-safety-orange transition-colors font-semibold"
+                >sales@osmdecals.ca</a
+              >
             </div>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:sales@osmdecals.ca?subject=Quote%20Request" class="btn-primary bg-safety-orange text-white px-10 py-4 rounded-lg font-heading font-bold text-lg shadow-lg">
-                    Request a Quote
-                </a>
-                <a href="mailto:sales@osmdecals.ca?subject=Sample%20Kit%20Request" class="btn-secondary border-2 border-navy text-navy hover:bg-navy hover:text-white px-10 py-4 rounded-lg font-heading font-bold text-lg transition-colors">
-                    Get a Sample Kit
-                </a>
+
+            <div class="text-center">
+              <div
+                class="w-16 h-16 bg-navy rounded-full flex items-center justify-center mx-auto mb-4"
+              >
+                <svg
+                  class="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20 7l-8 4-8-4m16 0v10a2 2 0 01-2 2H6a2 2 0 01-2-2V7m16 0l-8-4-8 4"
+                  />
+                </svg>
+              </div>
+              <h3 class="font-heading font-bold text-navy text-lg mb-2">
+                Request Samples
+              </h3>
+              <a
+                href="mailto:sales@osmdecals.ca?subject=Sample%20Kit%20Request"
+                class="text-teal hover:text-safety-orange transition-colors font-semibold"
+                >Get a free sample kit</a
+              >
             </div>
-            <p class="text-sm text-gray-400 mt-6">Need it fast? Rush orders are available at 25% surcharge.</p>
+          </div>
         </div>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:sales@osmdecals.ca?subject=Quote%20Request"
+            class="btn-primary bg-safety-orange text-white px-10 py-4 rounded-lg font-heading font-bold text-lg shadow-lg"
+          >
+            Request a Quote
+          </a>
+          <a
+            href="mailto:sales@osmdecals.ca?subject=Sample%20Kit%20Request"
+            class="btn-secondary border-2 border-navy text-navy hover:bg-navy hover:text-white px-10 py-4 rounded-lg font-heading font-bold text-lg transition-colors"
+          >
+            Get a Sample Kit
+          </a>
+        </div>
+        <p class="text-sm text-gray-400 mt-6">
+          Need it fast? Rush orders are available at 25% surcharge.
+        </p>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-navy-dark py-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <!-- Logo -->
-                <div class="mb-6 md:mb-0">
-                    <img src="logo.svg" alt="OSM Decals" class="h-8 md:h-10 w-auto object-contain" style="filter: brightness(0) invert(1);">
-                    <p class="text-white/40 text-xs text-center mt-1 tracking-wide">a division of First Impression Signs</p>
-                </div>
-                
-                <div class="text-center md:text-right">
-                    <p class="text-gray-400 text-sm mb-2">Oilfield Safety & Marking Solutions</p>
-                    <p class="text-gray-500 text-sm">&copy; 2026 OSM Decals. All rights reserved.</p>
-                </div>
-            </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <!-- Logo -->
+          <div class="mb-6 md:mb-0">
+            <img
+              src="logo.svg"
+              alt="OSM Decals"
+              class="h-8 md:h-10 w-auto object-contain"
+              style="filter: brightness(0) invert(1)"
+            />
+            <p class="text-white/40 text-xs text-center mt-1 tracking-wide">
+              a division of First Impression Signs
+            </p>
+          </div>
+
+          <div class="text-center md:text-right">
+            <p class="text-gray-400 text-sm mb-2">
+              Oilfield Safety & Marking Solutions
+            </p>
+            <p class="text-gray-500 text-sm">
+              &copy; 2026 OSM Decals. All rights reserved.
+            </p>
+          </div>
         </div>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const closeIcon = document.getElementById('close-icon');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIcon.classList.toggle('hidden');
-            closeIcon.classList.toggle('hidden');
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
+      const closeIcon = document.getElementById("close-icon");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        menuIcon.classList.toggle("hidden");
+        closeIcon.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll("#mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuIcon.classList.remove("hidden");
+          closeIcon.classList.add("hidden");
         });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.classList.remove('hidden');
-                closeIcon.classList.add('hidden');
+      });
+
+      // Smooth scroll with offset for fixed navbar
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const target = document.querySelector(targetId);
+          if (target) {
+            const navHeight = document.getElementById("navbar").offsetHeight;
+            const targetPosition =
+              target.getBoundingClientRect().top +
+              window.pageYOffset -
+              navHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
             });
+          }
         });
-        
-        // Smooth scroll with offset for fixed navbar
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const navHeight = document.getElementById('navbar').offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+      });
+
+      // Active nav state on scroll
+      const sections = document.querySelectorAll("section[id]");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      function updateActiveNav() {
+        const scrollPosition = window.scrollY + 100;
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute("id");
+
+          if (
+            scrollPosition >= sectionTop &&
+            scrollPosition < sectionTop + sectionHeight
+          ) {
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              if (link.getAttribute("href") === `#${sectionId}`) {
+                link.classList.add("active");
+              }
             });
+          }
         });
-        
-        // Active nav state on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        function updateActiveNav() {
-            const scrollPosition = window.scrollY + 100;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${sectionId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-        
-        window.addEventListener('scroll', updateActiveNav);
-        updateActiveNav();
+      }
+
+      window.addEventListener("scroll", updateActiveNav);
+      updateActiveNav();
     </script>
-</body>
+  </body>
 </html>
