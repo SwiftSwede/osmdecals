@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+# Explicitly allow AI crawlers (some default-deny configs block them by accident)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+Sitemap: https://www.osmdecals.ca/sitemap.xml
