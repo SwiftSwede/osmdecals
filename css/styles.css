@@ -1243,6 +1243,15 @@ footer .text-gray-500 {
   color: #c2410c;
   font-family: "Montserrat", Arial, sans-serif;
   font-weight: 900;
+  content: counter(helmet);
+}
+
+.product-page .helmet-list {
+  counter-reset: helmet;
+}
+
+.product-page .helmet-list li {
+  counter-increment: helmet;
 }
 
 .product-page .boundary-note {
