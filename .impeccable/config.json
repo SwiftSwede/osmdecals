@@ -50,6 +50,42 @@
         ],
         "createdAt": "2026-10-13T20:19:44.395Z",
         "reason": "Approved Manus product layout. Heading and body sizes are set in css/styles.css at more than 1.25 times; the HTML scan reads utility classes the stylesheet overrides."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "whmis-labels.html"
+        ],
+        "createdAt": "2026-10-13T20:22:33.858Z",
+        "reason": "Same approved product-page type scale as the fleet page, set in css/styles.css."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "hard-hat-stickers.html"
+        ],
+        "createdAt": "2026-10-13T20:22:33.881Z",
+        "reason": "Same approved product-page type scale as the fleet page, set in css/styles.css."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "reflective-signs.html"
+        ],
+        "createdAt": "2026-10-13T20:22:33.903Z",
+        "reason": "Same approved product-page type scale as the fleet page, set in css/styles.css."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "coroplast-signs.html"
+        ],
+        "createdAt": "2026-10-13T20:22:33.925Z",
+        "reason": "Same approved product-page type scale as the fleet page, set in css/styles.css."
       }
     ]
   }
