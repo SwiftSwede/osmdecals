@@ -1,0 +1,38 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-12T21:31:11.202Z",
+        "reason": "Approved SEO plan keeps existing heading classes and forbids layout changes. Size steps are incumbent, not part of this edit."
+      },
+      {
+        "rule": "marketing-buzzword",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-12T21:31:11.227Z",
+        "reason": "Finding names no phrase. Approved plan requires verbatim SEO title, description, and H1 and forbids rewriting existing body copy."
+      },
+      {
+        "rule": "overused-font",
+        "value": "open sans",
+        "createdAt": "2026-10-13T17:21:41.861Z",
+        "reason": "Existing body face in the shipped stylesheet. User asked to polish this design and keep it."
+      },
+      {
+        "rule": "overused-font",
+        "value": "montserrat",
+        "createdAt": "2026-10-13T18:06:15.360Z",
+        "reason": "Existing heading face in the shipped site. User asked to keep this design."
+      }
+    ]
+  }
+}

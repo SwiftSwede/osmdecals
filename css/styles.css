@@ -1,30 +1,159 @@
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-700-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-700-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-900-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("../assets/fonts/montserrat-900-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-300-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-300-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-400-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-400-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-600-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("../assets/fonts/open-sans-600-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 html {
   scroll-behavior: smooth;
+  scrollbar-color: #003366 #f2f2f2;
 }
 
-/* Industrial grid pattern overlay */
+::selection {
+  background: #003366;
+  color: #fff;
+}
+
+/* Lease-truck photograph with a navy scrim so the headline stays readable */
 .hero-pattern {
-  background-image:
-    linear-gradient(rgba(0, 51, 102, 0.95), rgba(0, 128, 128, 0.9)),
-    repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 50px,
-      rgba(255, 255, 255, 0.03) 50px,
-      rgba(255, 255, 255, 0.03) 51px
-    ),
-    repeating-linear-gradient(
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: #003366;
+}
+.hero-pattern > picture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% 42%;
+}
+.hero-pattern::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(
       90deg,
-      transparent,
-      transparent 50px,
-      rgba(255, 255, 255, 0.03) 50px,
-      rgba(255, 255, 255, 0.03) 51px
+      rgba(0, 34, 68, 0.94) 0%,
+      rgba(0, 34, 68, 0.78) 36%,
+      rgba(0, 34, 68, 0.28) 68%,
+      rgba(0, 34, 68, 0.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 34, 68, 0.28) 0%,
+      transparent 24%,
+      rgba(0, 34, 68, 0.35) 100%
     );
 }
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+@media (max-width: 767px) {
+  .hero-pattern::after {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 34, 68, 0.45) 0%,
+      rgba(0, 34, 68, 0.72) 38%,
+      rgba(0, 34, 68, 0.9) 100%
+    );
+  }
+  .hero-photo {
+    object-position: 62% 30%;
+  }
+}
 
-/* Active nav link styling */
+/* Active and hover links stay safety orange, lightened enough to read on navy */
+.nav-link:hover,
 .nav-link.active {
-  color: #ff6600;
+  color: #ff7518;
 }
 
 /* Product card hover effect */
@@ -63,16 +192,17 @@ html {
   background-repeat: repeat-y;
 }
 
-/* Horizontal dotted line on desktop */
-@media (min-width: 768px) {
+/* Horizontal dotted line on desktop, stopping at the next circle */
+@media (min-width: 1024px) {
   .process-step {
     padding-bottom: 0;
+    margin-bottom: 0;
   }
   .process-step:not(:last-child)::after {
     left: calc(50% + 30px);
     top: 24px;
     transform: translateY(-50%);
-    width: calc(100% - 12px);
+    width: calc(100% + 0.5rem - 60px);
     height: 2px;
     background-image: linear-gradient(
       to right,
@@ -84,22 +214,71 @@ html {
   }
 }
 
-/* Button hover effects */
-.btn-primary {
+/* Deeper orange so white button labels clear contrast. Headlines keep #FF6600. */
+button.btn-primary {
+  background-color: #c2410c;
+  color: #fff;
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
 }
-.btn-primary:hover {
+button.btn-primary:hover {
+  background-color: #9a3412;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.4);
+  box-shadow: 0 6px 14px rgba(154, 52, 18, 0.28);
+}
+button.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Small orange type on light surfaces */
+#pricing .text-safety-orange,
+#team .text-safety-orange {
+  color: #9a3412;
+}
+
+#contact a:hover,
+#contact button.text-teal:hover {
+  color: #003366;
 }
 
 .btn-secondary {
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
-.btn-secondary:hover {
+.hero-pattern .btn-secondary:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+:focus-visible {
+  outline: 2px solid #ff6600;
+  outline-offset: 3px;
+}
+.btn-primary:focus-visible {
+  outline-color: #003366;
+}
+.hero-pattern .btn-primary:focus-visible,
+#navbar .btn-primary:focus-visible {
+  outline-color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .btn-primary,
+  .product-card,
+  .modal-panel,
+  .modal-backdrop,
+  .product-details {
+    transition: none;
+  }
+  .btn-primary:hover,
+  .product-card:hover {
+    transform: none;
+  }
 }
 
 /* Modal system */
@@ -140,11 +319,16 @@ body.modal-open {
   padding: 0.625rem 0.875rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-family: "Open Sans", sans-serif;
+  caret-color: #003366;
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
+}
+.form-input::placeholder {
+  color: #4b5563;
+  opacity: 1;
 }
 .form-input:focus {
   outline: none;
@@ -195,4 +379,109 @@ body.modal-open {
   .form-row {
     grid-template-columns: 1fr;
   }
+}
+
+footer .text-gray-400,
+footer .text-gray-500 {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.modal-panel .text-gray-400 {
+  color: #4b5563;
+}
+
+/* Process digits need a deeper orange than the headline accent. */
+#process .bg-safety-orange {
+  background-color: #c2410c;
+}
+
+/* Small orange marks on navy. Headlines stay #FF6600. */
+#materials .text-safety-orange {
+  color: #ff8533;
+}
+
+/* Small teal type on light gray. Fills and the focus ring stay #008080. */
+#contact .text-teal,
+#pricing .text-teal {
+  color: #115e59;
+}
+
+/* Gray utility colors miss AA on the light cards and wash out on navy. */
+#pricing .bg-light-gray .text-gray-500,
+#team .text-gray-500 {
+  color: #4b5563;
+}
+.hero-pattern .text-gray-200 {
+  color: rgba(255, 255, 255, 0.92);
+}
+#materials .text-gray-300 {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+#navbar {
+  padding-top: env(safe-area-inset-top);
+}
+@media (max-width: 1023px) {
+  #mobile-menu-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+#contact a[href^="tel"],
+#contact a[href^="mailto"],
+#contact button.text-teal,
+footer a[href^="tel"],
+footer a[href^="mailto"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding-inline: 0.25rem;
+}
+#navbar .btn-primary {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+.modal-panel > h2 {
+  padding-right: 2.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  z-index: 80;
+  transform: translateY(-120%);
+  background: #fff;
+  color: #003366;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+.skip-link:focus {
+  transform: none;
+  outline: 2px solid #ff6600;
+  outline-offset: 3px;
+}
+
+.form-error {
+  color: #9a3412;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
 }

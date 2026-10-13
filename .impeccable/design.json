@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T18:55:23Z",
+  "title": "Design System: OSM Decals",
+  "extensions": {
+    "colorMeta": {
+      "navy": {
+        "role": "primary",
+        "displayName": "Shop Navy",
+        "canonical": "#003366",
+        "tonalRamp": ["#001428", "#001e3c", "#002850", "#003366", "#1a5280", "#4d7aa3", "#80a3c2", "#c6d6e6"]
+      },
+      "navy-dark": {
+        "role": "primary",
+        "displayName": "Night Navy",
+        "canonical": "#002244",
+        "tonalRamp": ["#000c18", "#001428", "#001b36", "#002244", "#1a4a6e", "#4d7396", "#80a0bb", "#c6d4e0"]
+      },
+      "safety-orange": {
+        "role": "tertiary",
+        "displayName": "Safety Orange",
+        "canonical": "#FF6600",
+        "tonalRamp": ["#4a1c00", "#7a3000", "#b34700", "#ff6600", "#ff8533", "#ffa366", "#ffc299", "#ffe0cc"]
+      },
+      "action-orange": {
+        "role": "primary",
+        "displayName": "Action Orange",
+        "canonical": "#C2410C",
+        "tonalRamp": ["#431407", "#7c2d12", "#9a3412", "#c2410c", "#ea580c", "#fb923c", "#fdba74", "#ffedd5"]
+      },
+      "action-orange-hover": {
+        "role": "primary",
+        "displayName": "Pressed Orange",
+        "canonical": "#9A3412",
+        "tonalRamp": ["#431407", "#7c2d12", "#9a3412", "#c2410c", "#ea580c", "#fb923c", "#fdba74", "#ffedd5"]
+      },
+      "mark-on-navy": {
+        "role": "tertiary",
+        "displayName": "Mark Orange",
+        "canonical": "#FF8533",
+        "tonalRamp": ["#4a1c00", "#7a3000", "#b34700", "#ff6600", "#ff8533", "#ffa366", "#ffc299", "#ffe0cc"]
+      },
+      "type-on-light": {
+        "role": "tertiary",
+        "displayName": "Rate Orange",
+        "canonical": "#9A3412",
+        "tonalRamp": ["#431407", "#7c2d12", "#9a3412", "#c2410c", "#ea580c", "#fb923c", "#fdba74", "#ffedd5"]
+      },
+      "nav-hover": {
+        "role": "tertiary",
+        "displayName": "Nav Orange",
+        "canonical": "#FF7518",
+        "tonalRamp": ["#4a1c00", "#7a3000", "#b34700", "#ff6600", "#ff7518", "#ffa366", "#ffc299", "#ffe0cc"]
+      },
+      "teal": {
+        "role": "secondary",
+        "displayName": "Shop Teal",
+        "canonical": "#008080",
+        "tonalRamp": ["#042f2e", "#0f4c4c", "#115e59", "#008080", "#14b8a6", "#5eead4", "#99f6e4", "#ccfbf1"]
+      },
+      "teal-type": {
+        "role": "secondary",
+        "displayName": "Type Teal",
+        "canonical": "#115E59",
+        "tonalRamp": ["#042f2e", "#0f4c4c", "#115e59", "#008080", "#14b8a6", "#5eead4", "#99f6e4", "#ccfbf1"]
+      },
+      "light-gray": {
+        "role": "neutral",
+        "displayName": "Sheet",
+        "canonical": "#F2F2F2",
+        "tonalRamp": ["#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f2f2f2", "#ffffff"]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#E5E7EB",
+        "tonalRamp": ["#1f2937", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#f2f2f2", "#ffffff"]
+      },
+      "stroke": {
+        "role": "neutral",
+        "displayName": "Stroke",
+        "canonical": "#D1D5DB",
+        "tonalRamp": ["#1f2937", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#f2f2f2", "#ffffff"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["#1f2937", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#e5e7eb", "#f2f2f2", "#ffffff"]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Body",
+        "canonical": "#1F2937",
+        "tonalRamp": ["#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f2f2f2", "#ffffff"]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "canonical": "#4B5563",
+        "tonalRamp": ["#1f2937", "#374151", "#4b5563", "#6b7280", "#9ca3af", "#d1d5db", "#f2f2f2", "#ffffff"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only. 2.25rem, 3rem at 768px, 3.75rem at 1024px." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. 1.875rem, 2.25rem at 768px." },
+      "title": { "displayName": "Title", "purpose": "Product, price, and person names." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs and form controls." },
+      "label": { "displayName": "Label", "purpose": "Form labels and price notes." }
+    },
+    "shadows": [
+      { "name": "card-rest", "value": "0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)", "purpose": "Product cards at rest." },
+      { "name": "card-hover", "value": "0 20px 40px rgba(0, 51, 102, 0.15)", "purpose": "Product card lift." },
+      { "name": "price-hover", "value": "0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -4px rgba(0,0,0,.1)", "purpose": "Pricing card hover." },
+      { "name": "button-hover", "value": "0 6px 14px rgba(154, 52, 18, 0.28)", "purpose": "Primary button hover." },
+      { "name": "modal", "value": "0 25px 60px rgba(0, 0, 0, 0.3)", "purpose": "Quote panel." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "ease", "purpose": "Button, card, and modal transitions, 0.2s to 0.3s." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Quote and order actions.",
+      "html": "<button class=\"ds-btn-primary\">Request a Quote</button>",
+      "css": ".ds-btn-primary { background: #c2410c; color: #fff; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 1rem; padding: 16px 32px; border: 0; border-radius: 8px; min-height: 44px; cursor: pointer; transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; } .ds-btn-primary:hover { background: #9a3412; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(154, 52, 18, 0.28); } .ds-btn-primary:active { transform: translateY(0) scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #003366; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Sample kit on the navy hero.",
+      "html": "<button class=\"ds-btn-secondary\">Get a Free Sample Kit</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #fff; font-family: Montserrat, sans-serif; font-weight: 700; font-size: 1rem; padding: 16px 32px; border: 2px solid #fff; border-radius: 8px; cursor: pointer; } .ds-btn-secondary:hover { background: rgba(255,255,255,0.1); } .ds-btn-secondary:focus-visible { outline: 2px solid #ff6600; outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Quote form field with the label above.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Name</label><input class=\"ds-input\" id=\"ds-name\" type=\"text\" />",
+      "css": ".ds-label { display: block; font-family: Open Sans, sans-serif; font-size: 0.875rem; font-weight: 600; color: #003366; margin-bottom: 4px; } .ds-input { width: 100%; box-sizing: border-box; padding: 10px 14px; border: 1px solid #d1d5db; border-radius: 8px; font-family: Open Sans, sans-serif; font-size: 1rem; color: #1f2937; caret-color: #003366; } .ds-input:focus { outline: none; border-color: #008080; box-shadow: 0 0 0 3px rgba(0,128,128,0.15); }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Fixed navy bar with the quote action.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-word\">OSM DECALS</span><a class=\"ds-link\" href=\"#products\">Products</a><button class=\"ds-btn-primary ds-nav-btn\">Request a Quote</button></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; background: rgba(0,51,102,0.95); color: #fff; padding: 16px 24px; font-family: Open Sans, sans-serif; } .ds-word { font-family: Montserrat, sans-serif; font-weight: 900; letter-spacing: 0.02em; } .ds-link { color: #fff; font-weight: 600; text-decoration: none; } .ds-link:hover { color: #ff7518; } .ds-nav-btn { min-height: 44px; padding: 8px 20px; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "Photo, name, and one sentence.",
+      "html": "<article class=\"ds-card\"><div class=\"ds-card-photo\"></div><h3 class=\"ds-card-title\">Industrial WHMIS Labels</h3><p class=\"ds-card-copy\">Assembled and UV-laminated in Bonnyville.</p></article>",
+      "css": ".ds-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1); font-family: Open Sans, sans-serif; } .ds-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,51,102,0.15); } .ds-card-photo { height: 160px; background: #003366; } .ds-card-title { font-family: Montserrat, sans-serif; color: #003366; font-size: 1.125rem; line-height: 1.75; margin: 16px 24px 8px; } .ds-card-copy { color: #4b5563; margin: 0 24px 24px; }"
+    },
+    {
+      "name": "Product Badge",
+      "kind": "chip",
+      "refersTo": "badge",
+      "description": "UV-LAMINATED and similar tags on price cards.",
+      "html": "<span class=\"ds-badge\">UV-LAMINATED</span>",
+      "css": ".ds-badge { display: inline-block; background: rgba(0, 51, 102, 0.1); color: #003366; font-family: Open Sans, sans-serif; font-size: 0.75rem; font-weight: 600; padding: 4px 8px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Bonnyville Counter",
+    "overview": "The page is a shop counter, not a campaign. Navy holds the header, the hero scrim, and the materials band. Safety orange marks the words that name the work, and a deeper orange is reserved for buttons and the process numbers so white type stays readable. Photography is the shop's own: a lease truck, labels, hard hats, signs, and the three Rasks.\n\nDensity is a catalog. Prices, minimums, and the quote action sit in the same scroll as the photos. Motion is limited to hover lift, the modal, and focus. There is no dark theme. The owner asked to keep this world.",
+    "keyCharacteristics": [
+      "Navy structure, orange action, teal as a second shop color",
+      "Montserrat headings, Open Sans body, both self-hosted (woff2: Montserrat 700/900, Open Sans 300/400/600)",
+      "Real product photos and a full-bleed lease-truck hero",
+      "Rates and minimums visible before the form",
+      "Soft corners: 4px badges, 8px controls, 12px cards, 16px contact and quote panels, full circles for process and team"
+    ],
+    "rules": [
+      { "name": "The Orange Job Rule", "body": "#FF6600 is for large type on navy. Buttons and numbered steps use #C2410C. Small orange type on a light surface uses #9A3412.", "section": "colors" },
+      { "name": "The Teal Job Rule", "body": "#008080 is for fills and the focus ring. Small teal type on a light surface uses #115E59.", "section": "colors" },
+      { "name": "The Same Face Rule", "body": "Do not swap Montserrat or Open Sans, and do not insert a serif for emphasis.", "section": "typography" },
+      { "name": "The No Glow Rule", "body": "Shadows are offset and navy or brown tinted. Do not add a zero-offset orange halo.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the lease-truck photo behind the hero, with a navy scrim strong enough for the H1.",
+      "Do keep one quote button label, Request a Quote, and let each button open its own modal.",
+      "Do use the deeper action orange wherever white type sits on orange."
+    ],
+    "donts": [
+      "Don't add a dark mode or a second accent family.",
+      "Don't rewrite the H1, prices, or team lines as part of a visual pass.",
+      "Don't put small white type on #FF6600."
+    ]
+  }
+}

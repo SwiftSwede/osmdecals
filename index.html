@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       content="Oilfield decals, WHMIS labels, hard hat stickers, fleet vinyl & reflective safety signs, made in-house in Bonnyville, AB. Prices online, quotes in 24 hours, ships in 5–10 days."
@@ -56,39 +56,31 @@
       href="assets/logos/apple-touch-icon.png"
     />
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@300;400;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="assets/fonts/montserrat-900-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              navy: "#003366",
-              "navy-dark": "#002244",
-              teal: "#008080",
-              "safety-orange": "#FF6600",
-              "light-gray": "#F2F2F2",
-            },
-            fontFamily: {
-              heading: ["Montserrat", "sans-serif"],
-              body: ["Open Sans", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-
-    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="preload"
+      href="assets/fonts/open-sans-400-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/fleet-truck-decals.webp"
+      type="image/webp"
+    />
+    <link rel="stylesheet" href="css/tailwind.css?v=1" />
+    <link rel="stylesheet" href="css/styles.css?v=8" />
   </head>
   <body class="font-body text-gray-800 bg-white">
+    <a class="skip-link" href="#main">Skip to content</a>
     <!-- Navigation -->
     <nav
       id="navbar"
@@ -99,20 +91,20 @@
           class="flex justify-between items-center h-16 md:h-20 overflow-visible"
         >
           <!-- Logo -->
-          <a href="#" class="block flex-shrink-0 overflow-visible">
+          <a href="#" class="inline-flex flex-col items-center flex-shrink-0">
             <img
               src="assets/logos/logo.svg?v=5"
               alt="OSM Decals"
               class="h-8 sm:h-9 md:h-12 w-auto max-w-none"
               style="filter: brightness(0) invert(1)"
             />
-            <p class="text-white/50 text-xs text-center mt-0.5 tracking-wide">
+            <p class="text-white/80 text-xs text-center mt-0.5 tracking-wide">
               a division of 1st Impression Signs
             </p>
           </a>
 
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center space-x-8">
+          <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
             <a
               href="#products"
               class="nav-link text-white hover:text-safety-orange transition-colors font-semibold"
@@ -150,8 +142,10 @@
           <!-- Mobile Menu Button -->
           <button
             id="mobile-menu-btn"
-            class="md:hidden text-white p-2"
+            class="lg:hidden text-white p-2"
             aria-label="Toggle menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
           >
             <svg
               class="w-6 h-6"
@@ -179,7 +173,7 @@
         </div>
 
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4">
+        <div id="mobile-menu" class="hidden lg:hidden pb-4">
           <div class="flex flex-col space-y-3">
             <a
               href="#products"
@@ -218,9 +212,25 @@
       </div>
     </nav>
 
+    <main id="main">
     <!-- Hero Section -->
-    <section class="hero-pattern min-h-screen flex items-center pt-16 md:pt-20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+    <section class="hero-pattern min-h-[100dvh] flex items-end pt-24 pb-12 md:pb-16">
+      <picture>
+        <source
+          srcset="assets/images/fleet-truck-decals.webp"
+          type="image/webp"
+        />
+        <img
+          src="assets/images/fleet-truck-decals.jpg"
+          alt="White lease truck with an OSM Decals door mark on a gravel road"
+          class="hero-photo"
+          width="1376"
+          height="768"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <div class="hero-copy max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div class="max-w-3xl">
           <h1
             class="font-heading font-black text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-6"
@@ -257,7 +267,7 @@
     <section class="py-10 bg-white border-b border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <p
-          class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-8"
+          class="text-center text-sm font-semibold text-gray-600 mb-8"
         >
           Trusted by leading oilfield companies
         </p>
@@ -268,7 +278,7 @@
           <div
             class="flex items-center justify-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
           >
-            <img
+            <img loading="lazy" decoding="async"
               src="assets/logos/surerus-murphy-logo.webp"
               alt="Surerus Murphy"
               class="h-10 md:h-14 w-auto object-contain"
@@ -278,7 +288,7 @@
           <div
             class="flex items-center justify-center opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300"
           >
-            <img
+            <img loading="lazy" decoding="async"
               src="assets/logos/connacher-logo.webp"
               alt="Connacher Oil and Gas"
               class="h-10 md:h-14 w-auto object-contain"
@@ -324,12 +334,12 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           <!-- WHMIS Labels -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md h-full">
             <div class="h-40 overflow-hidden">
-              <img
-                src="assets/images/whmis-labels.jpg"
+              <img loading="lazy" decoding="async"
+                src="assets/images/whmis-labels.webp"
                 alt="Industrial WHMIS Labels"
                 class="w-full h-full object-cover"
               />
@@ -346,10 +356,10 @@
           </div>
 
           <!-- Hard Hat Stickers -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md h-full">
             <div class="h-40 overflow-hidden">
-              <img
-                src="assets/images/hard-hat-stickers.jpg"
+              <img loading="lazy" decoding="async"
+                src="assets/images/hard-hat-stickers.webp"
                 alt="Hard Hat Stickers"
                 class="w-full h-full object-cover"
               />
@@ -366,10 +376,10 @@
           </div>
 
           <!-- Fleet Truck Decals -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md h-full">
             <div class="h-40 overflow-hidden">
-              <img
-                src="assets/images/fleet-truck-decals.jpg"
+              <img loading="lazy" decoding="async"
+                src="assets/images/fleet-truck-decals.webp"
                 alt="Fleet Truck Decals"
                 class="w-full h-full object-cover"
               />
@@ -386,10 +396,10 @@
           </div>
 
           <!-- Reflective Traffic Signs -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md h-full">
             <div class="h-40 overflow-hidden">
-              <img
-                src="assets/images/traffic-safety-signs.png"
+              <img loading="lazy" decoding="async"
+                src="assets/images/traffic-safety-signs.webp"
                 alt="Custom reflective traffic and safety signs including speed limit, danger overhead power lines, and directional warning signs"
                 class="w-full h-full object-cover"
               />
@@ -406,10 +416,10 @@
           </div>
 
           <!-- Oilfield Coroplast Signs -->
-          <div class="bg-white rounded-xl overflow-hidden shadow-md">
+          <div class="product-card bg-white rounded-xl overflow-hidden shadow-md h-full">
             <div class="h-40 overflow-hidden">
-              <img
-                src="assets/images/coroplast-sign.png"
+              <img loading="lazy" decoding="async"
+                src="assets/images/coroplast-sign.webp"
                 alt="Oilfield Coroplast Signs"
                 class="w-full h-full object-cover"
               />
@@ -467,10 +477,10 @@
           </span>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-6 mt-12">
           <!-- Pricing Card: Industrial WHMIS Labels -->
           <div
-            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative h-full flex flex-col lg:col-span-2"
           >
             <h3 class="font-heading font-bold text-lg text-navy mb-1">
               Industrial WHMIS Labels
@@ -495,7 +505,7 @@
             <button
               type="button"
               onclick="openModal('modal-whmis')"
-              class="btn-primary block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+              class="btn-primary mt-auto block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
             >
               Request a Quote
             </button>
@@ -503,7 +513,7 @@
 
           <!-- Pricing Card: Hard Hat Stickers -->
           <div
-            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative h-full flex flex-col lg:col-span-2"
           >
             <h3 class="font-heading font-bold text-lg text-navy mb-1">
               Hard Hat Stickers
@@ -528,7 +538,7 @@
             <button
               type="button"
               onclick="openModal('modal-hardhat')"
-              class="btn-primary block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+              class="btn-primary mt-auto block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
             >
               Request a Quote
             </button>
@@ -536,7 +546,7 @@
 
           <!-- Pricing Card: Fleet Truck Decals -->
           <div
-            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative h-full flex flex-col lg:col-span-2"
           >
             <h3 class="font-heading font-bold text-lg text-navy mb-1">
               Fleet Truck Decals
@@ -561,7 +571,7 @@
             <button
               type="button"
               onclick="openModal('modal-fleet')"
-              class="btn-primary block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+              class="btn-primary mt-auto block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
             >
               Request a Quote
             </button>
@@ -569,7 +579,7 @@
 
           <!-- Pricing Card: Reflective Traffic Sign -->
           <div
-            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative h-full flex flex-col lg:col-span-2 lg:col-start-2"
           >
             <h3 class="font-heading font-bold text-lg text-navy mb-1">
               Reflective Traffic Sign
@@ -600,7 +610,7 @@
             <button
               type="button"
               onclick="openModal('modal-traffic')"
-              class="btn-primary block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+              class="btn-primary mt-auto block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
             >
               Request a Quote
             </button>
@@ -608,7 +618,7 @@
 
           <!-- Pricing Card: Oilfield Coroplast Sign -->
           <div
-            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative"
+            class="bg-light-gray rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-shadow relative h-full flex flex-col lg:col-span-2"
           >
             <h3 class="font-heading font-bold text-lg text-navy mb-1">
               Oilfield Coroplast Sign
@@ -639,7 +649,7 @@
             <button
               type="button"
               onclick="openModal('modal-coroplast')"
-              class="btn-primary block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
+              class="btn-primary mt-auto block w-full text-center bg-safety-orange text-white px-6 py-3 rounded-lg font-heading font-bold"
             >
               Request a Quote
             </button>
@@ -687,7 +697,7 @@
         </div>
 
         <!-- Process Steps -->
-        <div class="grid md:grid-cols-7 gap-8 md:gap-2">
+        <div class="grid lg:grid-cols-7 gap-8 lg:gap-2">
           <!-- Step 1 -->
           <div class="process-step flex flex-col items-center text-center">
             <div
@@ -767,7 +777,7 @@
           </div>
 
           <!-- Step 7 -->
-          <div class="flex flex-col items-center text-center">
+          <div class="process-step flex flex-col items-center text-center">
             <div
               class="w-12 h-12 bg-teal text-white rounded-full flex items-center justify-center font-heading font-bold text-lg mb-3 relative z-10"
             >
@@ -991,8 +1001,8 @@
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white"
             >
-              <img
-                src="assets/images/charlene-rask.png"
+              <img loading="lazy" decoding="async"
+                src="assets/images/charlene-rask.webp"
                 alt="Charlene Rask"
                 class="w-full h-full object-cover"
               />
@@ -1013,8 +1023,8 @@
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white"
             >
-              <img
-                src="assets/images/trevor-rask.png"
+              <img loading="lazy" decoding="async"
+                src="assets/images/trevor-rask.webp"
                 alt="Trevor Rask"
                 class="w-full h-full object-cover"
               />
@@ -1036,8 +1046,8 @@
             <div
               class="w-32 h-32 mx-auto mb-5 rounded-full overflow-hidden ring-4 ring-safety-orange/20 bg-white"
             >
-              <img
-                src="assets/images/kyle-rask.png"
+              <img loading="lazy" decoding="async"
+                src="assets/images/kyle-rask.webp"
                 alt="Kyle Rask"
                 class="w-full h-full object-cover"
               />
@@ -1234,7 +1244,7 @@
             Get a Sample Kit
           </button>
         </div>
-        <p class="text-sm text-gray-400 mt-6">
+        <p class="text-sm text-gray-600 mt-6">
           Need it fast? Rush orders are available at 25% surcharge.
         </p>
       </div>
@@ -1242,18 +1252,21 @@
 
     <!-- ==================== MODALS ==================== -->
 
+    </main>
+
     <!-- General Quote Modal -->
     <div
       id="modal-general-quote"
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-general-quote-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-general-quote')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -1270,7 +1283,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-general-quote-title" class="font-heading font-black text-2xl text-navy mb-1">
           Request a Quote
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -1295,6 +1308,8 @@
                   <input
                     type="checkbox"
                     class="product-checkbox"
+                    name="products"
+                    value="Industrial WHMIS Labels"
                     data-target="gen-details-whmis"
                   />
                   Industrial WHMIS Labels
@@ -1324,7 +1339,7 @@
                     <div class="flex items-center gap-2">
                       <input
                         type="number"
-                        name="whmis_width"
+                        id="whmis_width-1" name="whmis_width" aria-label="Width in inches"
                         class="form-input"
                         placeholder='W"'
                         min="1"
@@ -1336,7 +1351,7 @@
                       >
                       <input
                         type="number"
-                        name="whmis_height"
+                        id="whmis_height-2" name="whmis_height" aria-label="Height in inches"
                         class="form-input"
                         placeholder='H"'
                         min="1"
@@ -1353,6 +1368,8 @@
                   <input
                     type="checkbox"
                     class="product-checkbox"
+                    name="products"
+                    value="Hard Hat Stickers"
                     data-target="gen-details-hardhat"
                   />
                   Hard Hat Stickers
@@ -1382,7 +1399,7 @@
                     <div class="flex items-center gap-2">
                       <input
                         type="number"
-                        name="hardhat_width"
+                        id="hardhat_width-3" name="hardhat_width" aria-label="Width in inches"
                         class="form-input"
                         placeholder='W"'
                         min="1"
@@ -1394,7 +1411,7 @@
                       >
                       <input
                         type="number"
-                        name="hardhat_height"
+                        id="hardhat_height-4" name="hardhat_height" aria-label="Height in inches"
                         class="form-input"
                         placeholder='H"'
                         min="1"
@@ -1411,6 +1428,8 @@
                   <input
                     type="checkbox"
                     class="product-checkbox"
+                    name="products"
+                    value="Fleet Truck Decals"
                     data-target="gen-details-fleet"
                   />
                   Fleet Truck Decals
@@ -1440,7 +1459,7 @@
                     <div class="flex items-center gap-2">
                       <input
                         type="number"
-                        name="fleet_width"
+                        id="fleet_width-5" name="fleet_width" aria-label="Width in inches"
                         class="form-input"
                         placeholder='W"'
                         min="1"
@@ -1452,7 +1471,7 @@
                       >
                       <input
                         type="number"
-                        name="fleet_height"
+                        id="fleet_height-6" name="fleet_height" aria-label="Height in inches"
                         class="form-input"
                         placeholder='H"'
                         min="1"
@@ -1469,6 +1488,8 @@
                   <input
                     type="checkbox"
                     class="product-checkbox"
+                    name="products"
+                    value="Reflective Traffic Signs"
                     data-target="gen-details-traffic"
                   />
                   Reflective Traffic Signs
@@ -1498,7 +1519,7 @@
                     <div class="flex items-center gap-2">
                       <input
                         type="number"
-                        name="traffic_width"
+                        id="traffic_width-7" name="traffic_width" aria-label="Width in inches"
                         class="form-input"
                         placeholder='W"'
                         min="1"
@@ -1510,7 +1531,7 @@
                       >
                       <input
                         type="number"
-                        name="traffic_height"
+                        id="traffic_height-8" name="traffic_height" aria-label="Height in inches"
                         class="form-input"
                         placeholder='H"'
                         min="1"
@@ -1527,6 +1548,8 @@
                   <input
                     type="checkbox"
                     class="product-checkbox"
+                    name="products"
+                    value="Oilfield Coroplast Signs"
                     data-target="gen-details-coro"
                   />
                   Oilfield Coroplast Signs
@@ -1556,7 +1579,7 @@
                     <div class="flex items-center gap-2">
                       <input
                         type="number"
-                        name="coro_width"
+                        id="coro_width-9" name="coro_width" aria-label="Width in inches"
                         class="form-input"
                         placeholder='W"'
                         min="1"
@@ -1568,7 +1591,7 @@
                       >
                       <input
                         type="number"
-                        name="coro_height"
+                        id="coro_height-10" name="coro_height" aria-label="Height in inches"
                         class="form-input"
                         placeholder='H"'
                         min="1"
@@ -1612,7 +1635,7 @@
               <input
                 type="text"
                 id="gen-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -1622,7 +1645,7 @@
               <input
                 type="text"
                 id="gen-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -1634,7 +1657,7 @@
               <input
                 type="email"
                 id="gen-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -1644,7 +1667,7 @@
               <input
                 type="tel"
                 id="gen-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -1670,7 +1693,7 @@
                 <input
                   type="text"
                   id="gen-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -1681,7 +1704,7 @@
                   <input
                     type="text"
                     id="gen-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -1693,7 +1716,7 @@
                   <input
                     type="text"
                     id="gen-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -1708,7 +1731,7 @@
                   <input
                     type="text"
                     id="gen-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -1719,8 +1742,8 @@
             </div>
           </div>
           <div>
-            <label class="form-label">When do you need it by?</label>
-            <input type="date" name="needed_by" class="form-input mt-1" />
+            <label class="form-label" for="needed-by-1">When do you need it by?</label>
+            <input type="date" id="needed-by-1" name="needed_by" class="form-input mt-1" autocomplete="off" />
             <p class="text-xs text-gray-400 mt-1">
               Anything within 5 business days will be considered a rush order.
             </p>
@@ -1770,12 +1793,13 @@
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-whmis-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-whmis')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -1792,7 +1816,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-whmis-title" class="font-heading font-black text-2xl text-navy mb-1">
           Industrial WHMIS Labels
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -1828,7 +1852,7 @@
             <div class="flex items-center gap-2 mt-1">
               <input
                 type="number"
-                name="width"
+                id="width-field-1" name="width" aria-label="Width in inches"
                 class="form-input"
                 placeholder='W"'
                 min="1"
@@ -1839,7 +1863,7 @@
               >
               <input
                 type="number"
-                name="height"
+                id="height-field-2" name="height" aria-label="Height in inches"
                 class="form-input"
                 placeholder='H"'
                 min="1"
@@ -1888,7 +1912,7 @@
               <input
                 type="text"
                 id="whmis-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -1898,7 +1922,7 @@
               <input
                 type="text"
                 id="whmis-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -1910,7 +1934,7 @@
               <input
                 type="email"
                 id="whmis-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -1920,7 +1944,7 @@
               <input
                 type="tel"
                 id="whmis-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -1936,7 +1960,7 @@
                 <input
                   type="text"
                   id="whmis-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -1947,7 +1971,7 @@
                   <input
                     type="text"
                     id="whmis-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -1959,7 +1983,7 @@
                   <input
                     type="text"
                     id="whmis-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -1974,7 +1998,7 @@
                   <input
                     type="text"
                     id="whmis-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -1985,8 +2009,8 @@
             </div>
           </div>
           <div>
-            <label class="form-label">When do you need it by?</label>
-            <input type="date" name="needed_by" class="form-input mt-1" />
+            <label class="form-label" for="needed-by-2">When do you need it by?</label>
+            <input type="date" id="needed-by-2" name="needed_by" class="form-input mt-1" autocomplete="off" />
             <p class="text-xs text-gray-400 mt-1">
               Anything within 5 business days will be considered a rush order.
             </p>
@@ -2036,12 +2060,13 @@
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-hardhat-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-hardhat')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -2058,7 +2083,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-hardhat-title" class="font-heading font-black text-2xl text-navy mb-1">
           Hard Hat Stickers
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -2092,7 +2117,7 @@
             <div class="flex items-center gap-2 mt-1">
               <input
                 type="number"
-                name="width"
+                id="width-field-3" name="width" aria-label="Width in inches"
                 class="form-input"
                 placeholder='W"'
                 min="1"
@@ -2103,7 +2128,7 @@
               >
               <input
                 type="number"
-                name="height"
+                id="height-field-4" name="height" aria-label="Height in inches"
                 class="form-input"
                 placeholder='H"'
                 min="1"
@@ -2150,7 +2175,7 @@
               <input
                 type="text"
                 id="hh-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -2160,7 +2185,7 @@
               <input
                 type="text"
                 id="hh-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -2172,7 +2197,7 @@
               <input
                 type="email"
                 id="hh-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -2182,7 +2207,7 @@
               <input
                 type="tel"
                 id="hh-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -2198,7 +2223,7 @@
                 <input
                   type="text"
                   id="hh-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -2209,7 +2234,7 @@
                   <input
                     type="text"
                     id="hh-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -2219,7 +2244,7 @@
                   <input
                     type="text"
                     id="hh-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -2234,7 +2259,7 @@
                   <input
                     type="text"
                     id="hh-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -2245,8 +2270,8 @@
             </div>
           </div>
           <div>
-            <label class="form-label">When do you need it by?</label>
-            <input type="date" name="needed_by" class="form-input mt-1" />
+            <label class="form-label" for="needed-by-3">When do you need it by?</label>
+            <input type="date" id="needed-by-3" name="needed_by" class="form-input mt-1" autocomplete="off" />
             <p class="text-xs text-gray-400 mt-1">
               Anything within 5 business days will be considered a rush order.
             </p>
@@ -2297,12 +2322,13 @@
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-fleet-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-fleet')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -2319,7 +2345,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-fleet-title" class="font-heading font-black text-2xl text-navy mb-1">
           Fleet Truck Decals
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -2355,7 +2381,7 @@
             <div class="flex items-center gap-2 mt-1">
               <input
                 type="number"
-                name="width"
+                id="width-field-5" name="width" aria-label="Width in inches"
                 class="form-input"
                 placeholder='W"'
                 min="1"
@@ -2366,7 +2392,7 @@
               >
               <input
                 type="number"
-                name="height"
+                id="height-field-6" name="height" aria-label="Height in inches"
                 class="form-input"
                 placeholder='H"'
                 min="1"
@@ -2413,7 +2439,7 @@
               <input
                 type="text"
                 id="fleet-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -2423,7 +2449,7 @@
               <input
                 type="text"
                 id="fleet-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -2435,7 +2461,7 @@
               <input
                 type="email"
                 id="fleet-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -2445,7 +2471,7 @@
               <input
                 type="tel"
                 id="fleet-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -2461,7 +2487,7 @@
                 <input
                   type="text"
                   id="fleet-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -2472,7 +2498,7 @@
                   <input
                     type="text"
                     id="fleet-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -2484,7 +2510,7 @@
                   <input
                     type="text"
                     id="fleet-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -2499,7 +2525,7 @@
                   <input
                     type="text"
                     id="fleet-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -2510,8 +2536,8 @@
             </div>
           </div>
           <div>
-            <label class="form-label">When do you need it by?</label>
-            <input type="date" name="needed_by" class="form-input mt-1" />
+            <label class="form-label" for="needed-by-4">When do you need it by?</label>
+            <input type="date" id="needed-by-4" name="needed_by" class="form-input mt-1" autocomplete="off" />
             <p class="text-xs text-gray-400 mt-1">
               Anything within 5 business days will be considered a rush order.
             </p>
@@ -2562,12 +2588,13 @@
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-traffic-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-traffic')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -2584,7 +2611,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-traffic-title" class="font-heading font-black text-2xl text-navy mb-1">
           Reflective Traffic Signs
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -2624,7 +2651,7 @@
             <div class="flex items-center gap-2 mt-1">
               <input
                 type="number"
-                name="width"
+                id="width-field-7" name="width" aria-label="Width in inches"
                 class="form-input"
                 placeholder='W"'
                 min="1"
@@ -2635,7 +2662,7 @@
               >
               <input
                 type="number"
-                name="height"
+                id="height-field-8" name="height" aria-label="Height in inches"
                 class="form-input"
                 placeholder='H"'
                 min="1"
@@ -2659,7 +2686,7 @@
               <input
                 type="text"
                 id="traffic-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -2669,7 +2696,7 @@
               <input
                 type="text"
                 id="traffic-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -2681,7 +2708,7 @@
               <input
                 type="email"
                 id="traffic-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -2691,7 +2718,7 @@
               <input
                 type="tel"
                 id="traffic-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -2707,7 +2734,7 @@
                 <input
                   type="text"
                   id="traffic-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -2718,7 +2745,7 @@
                   <input
                     type="text"
                     id="traffic-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -2730,7 +2757,7 @@
                   <input
                     type="text"
                     id="traffic-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -2745,7 +2772,7 @@
                   <input
                     type="text"
                     id="traffic-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -2756,8 +2783,8 @@
             </div>
           </div>
           <div>
-            <label class="form-label">When do you need it by?</label>
-            <input type="date" name="needed_by" class="form-input mt-1" />
+            <label class="form-label" for="needed-by-5">When do you need it by?</label>
+            <input type="date" id="needed-by-5" name="needed_by" class="form-input mt-1" autocomplete="off" />
             <p class="text-xs text-gray-400 mt-1">
               Anything within 5 business days will be considered a rush order.
             </p>
@@ -2808,12 +2835,13 @@
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-coroplast-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-coroplast')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -2830,7 +2858,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-coroplast-title" class="font-heading font-black text-2xl text-navy mb-1">
           Oilfield Coroplast Signs
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -2868,7 +2896,7 @@
             <div class="flex items-center gap-2 mt-1">
               <input
                 type="number"
-                name="width"
+                id="width-field-9" name="width" aria-label="Width in inches"
                 class="form-input"
                 placeholder='W"'
                 min="1"
@@ -2879,7 +2907,7 @@
               >
               <input
                 type="number"
-                name="height"
+                id="height-field-10" name="height" aria-label="Height in inches"
                 class="form-input"
                 placeholder='H"'
                 min="1"
@@ -2903,7 +2931,7 @@
               <input
                 type="text"
                 id="coro-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -2913,7 +2941,7 @@
               <input
                 type="text"
                 id="coro-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -2925,7 +2953,7 @@
               <input
                 type="email"
                 id="coro-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -2935,7 +2963,7 @@
               <input
                 type="tel"
                 id="coro-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -2951,7 +2979,7 @@
                 <input
                   type="text"
                   id="coro-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -2962,7 +2990,7 @@
                   <input
                     type="text"
                     id="coro-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -2974,7 +3002,7 @@
                   <input
                     type="text"
                     id="coro-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -2989,7 +3017,7 @@
                   <input
                     type="text"
                     id="coro-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -3000,8 +3028,8 @@
             </div>
           </div>
           <div>
-            <label class="form-label">When do you need it by?</label>
-            <input type="date" name="needed_by" class="form-input mt-1" />
+            <label class="form-label" for="needed-by-6">When do you need it by?</label>
+            <input type="date" id="needed-by-6" name="needed_by" class="form-input mt-1" autocomplete="off" />
             <p class="text-xs text-gray-400 mt-1">
               Anything within 5 business days will be considered a rush order.
             </p>
@@ -3051,12 +3079,13 @@
       class="modal-backdrop"
       role="dialog"
       aria-modal="true"
+      aria-labelledby="modal-sample-kit-title"
     >
       <div class="modal-panel p-6 md:p-8 relative">
         <button
           type="button"
           onclick="closeModal('modal-sample-kit')"
-          class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          class="modal-close absolute top-4 right-4 text-gray-600 hover:text-navy"
           aria-label="Close"
         >
           <svg
@@ -3073,7 +3102,7 @@
             />
           </svg>
         </button>
-        <h2 class="font-heading font-black text-2xl text-navy mb-1">
+        <h2 id="modal-sample-kit-title" class="font-heading font-black text-2xl text-navy mb-1">
           Request a Sample Kit
         </h2>
         <p class="text-gray-500 text-sm mb-6">
@@ -3096,7 +3125,7 @@
               <input
                 type="text"
                 id="sk-name"
-                name="name"
+                name="name" autocomplete="name"
                 class="form-input"
                 required
               />
@@ -3106,7 +3135,7 @@
               <input
                 type="text"
                 id="sk-company"
-                name="company"
+                name="company" autocomplete="organization"
                 class="form-input"
                 required
               />
@@ -3118,7 +3147,7 @@
               <input
                 type="email"
                 id="sk-email"
-                name="email"
+                name="email" autocomplete="email"
                 class="form-input"
                 required
               />
@@ -3128,7 +3157,7 @@
               <input
                 type="tel"
                 id="sk-phone"
-                name="phone"
+                name="phone" autocomplete="tel"
                 class="form-input"
                 required
               />
@@ -3144,7 +3173,7 @@
                 <input
                   type="text"
                   id="sk-street"
-                  name="shipping_street"
+                  name="shipping_street" autocomplete="street-address"
                   class="form-input"
                   required
                 />
@@ -3155,7 +3184,7 @@
                   <input
                     type="text"
                     id="sk-city"
-                    name="shipping_city"
+                    name="shipping_city" autocomplete="address-level2"
                     class="form-input"
                     required
                   />
@@ -3165,7 +3194,7 @@
                   <input
                     type="text"
                     id="sk-province"
-                    name="shipping_province"
+                    name="shipping_province" autocomplete="address-level1"
                     class="form-input"
                     placeholder="AB"
                     required
@@ -3180,7 +3209,7 @@
                   <input
                     type="text"
                     id="sk-postal"
-                    name="shipping_postal"
+                    name="shipping_postal" autocomplete="postal-code"
                     class="form-input"
                     placeholder="T0A 0A0"
                     required
@@ -3226,7 +3255,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-navy-dark py-10">
+    <footer id="site-footer" class="bg-navy-dark py-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <!-- Logo -->
@@ -3237,7 +3266,7 @@
               class="h-8 md:h-10 w-auto object-contain"
               style="filter: brightness(0) invert(1)"
             />
-            <p class="text-white/40 text-xs text-center mt-1 tracking-wide">
+            <p class="text-white/80 text-xs text-center mt-1 tracking-wide">
               a division of
               <a
                 href="https://www.1stimpress.ca/"
@@ -3275,7 +3304,7 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=1"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
