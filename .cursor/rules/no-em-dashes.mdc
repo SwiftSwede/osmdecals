@@ -1,0 +1,20 @@
+---
+description: Ban em dashes and require reading project rules before new work
+alwaysApply: true
+---
+
+# No em dashes
+
+Never use an em dash (—) in anything written for this project: page copy, titles, meta tags, JSON-LD, llms.txt, comments, or commit messages.
+
+Before building a new feature, read every rule in `.cursor/rules/`.
+
+Replace a pause with a period, comma, colon, or parentheses.
+
+```
+Bad: Labels — Made in Bonnyville
+Good: Labels. Made in Bonnyville
+
+Bad: Yes — we ship a sample kit
+Good: Yes. We ship a sample kit
+```
