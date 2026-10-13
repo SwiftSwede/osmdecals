@@ -217,3 +217,57 @@ document.querySelectorAll(".modal-form").forEach((form) => {
     }
   });
 });
+
+document.querySelectorAll(".choice-apply").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const select = document.getElementById("quote-choice");
+    const value = btn.getAttribute("data-choice");
+    if (select && value) select.value = value;
+    const quote = document.getElementById("quote");
+    if (!quote) return;
+    const navHeight = document.getElementById("navbar")?.offsetHeight || 0;
+    const top = quote.getBoundingClientRect().top + window.pageYOffset - navHeight;
+    window.scrollTo({
+      top,
+      behavior: reduceMotion.matches ? "auto" : "smooth",
+    });
+    if (select) select.focus();
+  });
+});
+
+document.querySelectorAll(".product-quote-form").forEach((form) => {
+  const error = document.createElement("p");
+  error.className = "form-error";
+  error.setAttribute("role", "alert");
+  error.hidden = true;
+  form.appendChild(error);
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    error.hidden = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+      if (!response.ok) throw new Error("Form submission failed");
+      form.classList.add("hidden");
+      const success = form.parentElement.querySelector(".success-message");
+      if (success) success.classList.remove("hidden");
+      form.reset();
+    } catch (err) {
+      error.textContent =
+        "The quote did not send. Try again, or email sales@osmdecals.ca.";
+      error.hidden = false;
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+});

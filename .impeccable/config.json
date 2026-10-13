@@ -32,6 +32,24 @@
         "value": "montserrat",
         "createdAt": "2026-10-13T18:06:15.360Z",
         "reason": "Existing heading face in the shipped site. User asked to keep this design."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "css/styles.css"
+        ],
+        "createdAt": "2026-10-13T20:12:54.689Z",
+        "reason": "Approved product-page plan and Manus visual master: teal left rail on the evidence card, safety-orange left rail on the proof note."
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "fleet-truck-decals.html"
+        ],
+        "createdAt": "2026-10-13T20:19:44.395Z",
+        "reason": "Approved Manus product layout. Heading and body sizes are set in css/styles.css at more than 1.25 times; the HTML scan reads utility classes the stylesheet overrides."
       }
     ]
   }
