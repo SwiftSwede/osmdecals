@@ -392,6 +392,28 @@ footer .text-gray-500 {
   gap: 32px;
 }
 
+.product-page .product-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-page .product-footer-brand img {
+  display: block;
+  margin-inline: auto;
+}
+
+.product-page .product-footer-contact {
+  text-align: center;
+}
+
+.product-page .product-footer-copy {
+  margin: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.875rem;
+}
+
 .product-page .product-footer-nav {
   display: flex;
   flex-wrap: wrap;
@@ -422,40 +444,50 @@ footer .text-gray-500 {
 
 @media (min-width: 48rem) {
   .product-page .product-footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "brand contact nav"
+      "copy copy copy";
+    gap: 32px 24px;
+    align-items: start;
   }
 
   .product-page .product-footer-brand {
-    order: 1;
-    flex-direction: column;
-    justify-content: flex-start;
+    grid-area: brand;
     align-items: flex-start;
     text-align: left;
   }
 
-  .product-page .product-footer-brand > div:first-child {
-    margin-bottom: 16px;
+  .product-page .product-footer-brand img {
+    margin-inline: 0;
   }
 
-  .product-page .product-footer-brand p,
-  .product-page .product-footer-brand .text-center,
-  .product-page .product-footer-brand .md\:text-right {
+  .product-page .product-footer-brand p {
     text-align: left;
   }
 
+  .product-page .product-footer-contact {
+    grid-area: contact;
+    text-align: center;
+  }
+
   .product-page .product-footer-nav {
-    order: 2;
+    grid-area: nav;
     flex-direction: column;
     flex-wrap: nowrap;
-    align-items: flex-end;
+    align-items: center;
     justify-content: flex-start;
     gap: 0;
     margin: 0;
     padding: 0;
     border: 0;
+  }
+
+  .product-page .product-footer-copy {
+    grid-area: copy;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
   }
 }
 
